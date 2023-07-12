@@ -1,0 +1,175 @@
+:root {
+    /* TYPOGRAPHY */
+    --em-size: 18px;
+    --section-spacing: 4.5rem;
+    --font-stack-Headlines: "Otomanopee one", system-ui, sans-serif;
+    --font-stack-Copy: "Prompt",  system-ui, sans-serif;
+
+    /* EXTRA */
+    --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
+
+    /* COLORS */
+    --greenInk: #56695A;
+    --greenPaper: #F6FFF9;
+    --green100: #E9F7EC;
+    --green200: #EDFBF0;
+    --green300: #A2D3AC;
+    --green500: #7BB587;
+    --greenHighlight: #A0F9B2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Otomanopee One";
+    src: url("/fonts/OtomanopeeOne-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-thin-webfont.woff2") format("woff2");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-extralight-webfont.woff2") format("woff2");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-light-webfont.woff2") format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-regular-webfont.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-medium-webfont.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-demibold-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-semibold-webfont.woff2") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-bold-webfont.woff2") format("woff2");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Silka";
+    src: url("/fonts/silka-black-webfont.woff2") format("woff2");
+    font-weight: 900;
+}
+
+
+html {
+    background-color: var(--green100);
+    font-family: sans-serif;
+}
+
+body {
+    line-height: 180%;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--em-size);
+    color: var(--greenInk);
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    height: 100vh;
+    width: 100vw;
+    line-height: 1.5;
+    font-family: var(--font-stack-Copy);
+    font-weight: 500;
+    margin: 0 auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: var(--greenHighlight)
+    /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+    background: var(--greenHighlight)
+    /* Gecko Browsers */
+}
+
+
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+      display: block;
+      max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+      font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+        color: var(--greenInk);
+        overflow-wrap: break-word;
+  }
+
+  h1 {
+      font: 5rem/120% var(--font-stack-Headlines);
+      margin: 0;
+  }
+
+  h2 {
+      font: 2rem/120% var(--font-stack-Headlines);
+      margin: 0rem;
+  }
+
+  h3 {
+      font: 1.25rem/120% var(--font-stack-Headlines);
+      margin: 0;
+  }
+
+  p, 
+  ul, 
+  ol, 
+  li {
+    font-family: var(--font-stack-Copy);
+    line-height: 180%;
+  }
+
+  a {
+    color: var(--greenInk);
+  }
+  

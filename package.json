@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.8.1"
+    "animate.css": "^4.1.1",
+    "astro": "^2.8.1",
+    "sass": "^1.63.6"
   }
 }

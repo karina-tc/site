@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Ribbon from "../../components/Ribbon.astro";
+import Button from "../../components/Button.astro";
+import Content from "../../view/Content.astro";
+import ExperienceRow from "../../components/resume/ExperienceRow.astro";
+---
+
+
+<BaseLayout pageTitle="Resume" footerMessage="work together">
+    <Content>
+            <Ribbon
+                headline="Karina Tovar"
+                image="../public/images/memoji-thinking.png">
+                <div>
+                    <p><strong>Senior Product Designer</strong>, Currently at Glue</p>
+                </div>
+                <div class="ribbon-links">
+                    <Button text="Download as PDF" href="/resume/" target=""></Button>
+                </div>
+            </Ribbon>
+        </Content>
+        <div class="split">
+            <div class="left">
+                <Content>
+                    <h2>Work experience</h2>
+                    <ExperienceRow
+                        type="main"
+                        year="2023"
+                        title="Senior Product Designer"
+                        company="Glue"
+                        startDate="June 2022"
+                        endDate=" July 2023"
+                        summary="As a member of the Product Leadership team, I collaborated with Product Management, Engineering, Data Science, and Sales teams to develop an AI-powered employee connection engine.">
+                    </ExperienceRow>
+                    <ExperienceRow
+                        type="main"
+                        year="2022"
+                        title="Staff Product Designer"
+                        company="Teikametrics"
+                        startDate="June 2020"
+                        endDate=" May 2022"
+                        summary="I contributed to the transformation of Teikametrics' flagship application, Flywheel, into a powerful AI-based solution for managing advertising for eCommerce sellers on Amazon and Walmart.">
+                    </ExperienceRow>
+                    <ExperienceRow
+                        type="main"
+                        year="2020"
+                        title="Product Lead"
+                        company="Rejoiner"
+                        startDate="May 20215"
+                        endDate=" June 2020"
+                        summary="During my tenure at Rejoiner, I played multiple roles as Product Manager, Product Designer, and Front-end Developer, driving the company's transformation from an agency partner to a full-fledged email marketing solution.">
+                    </ExperienceRow>
+                    <ExperienceRow
+                        type="other"
+                        year="2014">
+                    </ExperienceRow>
+                </Content>
+                <Content>
+                    <h2>Education</h2>
+                    <ExperienceRow
+                        type="education"
+                        year="2014"
+                        school="Massachusetts College of Art & Design"
+                        summary="Master of Fine Arts, Studio for Interrelated Media">
+                    </ExperienceRow>
+                    <ExperienceRow
+                        type="education"
+                        year="2011"
+                        school="University of Texas at El Paso"
+                        summary="Bachelors of Fine Arts, Graphic Design">
+                    </ExperienceRow>
+                </Content>
+            </div>
+            <div class="right">
+                <Content>
+                    <h2>Skills</h2>
+                    <div class="pills-row">
+                        <p>Prototyping, User research, Visual design, Wireframing, Front-end development, Usability testing</p>
+                    </div>
+                </Content>
+                <Content>
+                    <h2>Social</h2>
+                    <div class="socials">
+                        <Button text="LinkedIn" href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank" />
+                        <Button text="Github" href="https://github.com/karina-tc" target="_blank" />
+                        <Button text="Dribble" href="https://dribbble.com/karinatovar" target="_blank" />
+                    </div>
+                </Content>
+            </div>
+        </div>
+</BaseLayout>
+
+<style lang="scss">
+    .ribbon-links,
+    .pills-row,
+    .socials {
+		display: flex;
+		gap: 1rem;
+	}
+
+    .pills-row {
+        flex-wrap: wrap;
+
+        .pill {
+            padding: .5rem 1rem;
+            border-radius: 1rem;
+            color: var(--greenPaper);
+            background-color: var(--greenInk);
+        }
+    }
+
+    .socials {
+        padding-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    
+</style>

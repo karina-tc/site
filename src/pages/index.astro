@@ -1,16 +1,39 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Content from "../view/Content.astro";
+import Ribbon from '../components/Ribbon.astro';
+import Button from '../components/Button.astro'
+
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Karina Tovar</title>
-	</head>
-	<body>
-		<h1>Hello</h1>
-		<p>hellooooos</p>
-	</body>
-</html>
+<BaseLayout pageTitle='Home' background='background-main'>
+	<Content>
+		<Ribbon
+			headline='Well hello'
+			image="public/images/memoji-thumbsup.png">
+			<div>
+				<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+			</div>
+			<div class="ribbon-links">
+				<Button text='About' href='/about/' target='' />
+				<Button text='Resume' href='/resume/' target='' />
+				<Button text='Testimonials' href='/testimonials/' target='' />
+			</div>
+		</Ribbon>
+	</Content>
+	<Content>
+		<h2>What I do</h2>
+	</Content>
+	<Content>
+		<h2>Where I am</h2>
+	</Content>
+</BaseLayout>
+
+<style lang="scss">
+	.ribbon-links {
+		padding-top: 1rem;
+		display: flex;
+		gap: 1rem;
+	}
+</style>

@@ -1,0 +1,128 @@
+---
+export interface Props {
+    type: string;
+ 	year: string;
+    school?: string;
+    title?: string;
+    company?: string;
+    summary?: string;
+    startDate?: string;
+    endDate?: string;
+    highlights?: string;
+}
+
+const { type, year, school, title, company, summary, startDate, endDate, highlights } = Astro.props;
+---
+
+<div class="experience-row">
+    <div class="year">
+        <p>{year}</p>
+    </div>
+    {type === 'education' && (
+        <div class="details education">
+            <h3>{school}</h3>
+            <p>{summary}</p>
+        </div>
+    )}
+    {type === 'main' && (
+        <div class="details">
+            <p><strong>{startDate} - {endDate}</strong></p>
+            <h3>{title}, {company}</h3>
+            <p>{summary}</p>
+            {highlights && (
+                <div class="highlights">
+                    <p>Key highlights</p>
+                    <ul>
+                        <li>Partnered with Marketing on rebranding efforts of Glue, including renaming the company and designing the new visual identity for Glue that led to improved customer engagement.</li>
+                        <li>Conducted user and prospect interviews to create an Ideal Customer Profile (ICP), enabling a better understanding of Glue's target audience across the organization.</li>
+                        <li>Conducted user testing for features internally and externally.</li>
+                        <li>Was part of strategy and vision building for the product.</li>
+                        <li>Built core features for Glue's product that required close collaboration between the product and data science teams.</li>
+                        <li>Collaborated on the creation of a design system for the product that improved improve usability, scalability, and overall user experience.</li>
+                    </ul>
+                </div>
+            )}
+        </div>
+    )}
+    {type === 'other' && (
+        <div class="details other">
+            <h3>Other</h3>
+            <div class="split">
+                <div class="companies">
+                    <p>Venly, Inc</p>
+                    <p>iSpionage</p>
+                    <p>Massachusetts Institue of Technology</p>
+                    <p>Massachusetts College of Art & design</p>
+                </div>
+                <div class="titles">
+                    <p>Design Lead</p>
+                    <p>Freelance Designer</p>
+                    <p>Freelance Designer</p>
+                    <p>Freelance Designer</p>
+                </div>
+            </div>
+        </div>
+    )}
+</div>
+
+<style lang="scss">
+     .experience-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2rem;
+        padding: 1rem 0 0;
+
+        .year {
+            min-width: 4rem;
+            font-weight: bold;
+        }
+
+        .details {
+            width: 100%;
+            padding-top: .65rem;
+
+            p { 
+                margin: .5rem 0 1rem;
+                strong {
+                    text-transform: uppercase;
+                    font-size: .95rem;
+                    letter-spacing: .5px;
+                    opacity: .8;
+                }
+            }
+
+            &.other, &.education {
+                padding-top: 1.25rem;
+            }
+            
+
+            .split {
+                width: 100%;
+                display: flex;
+
+                .companies,
+                .titles {
+                    flex: 1;
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+                .titles {
+                    max-width: 11rem;
+                }
+            }
+
+            .highlights {
+                padding-top: 1rem;
+                font-size: 16px;
+                ul {
+                    li {
+                        text-indent: 0;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+</style>

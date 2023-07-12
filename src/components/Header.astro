@@ -1,0 +1,23 @@
+---
+import '../styles/global.css';
+import Menu from './Menu.astro';
+import Content from '../view/Content.astro';
+---
+
+<div class="header">
+    <Menu />
+</div>
+
+<style lang="scss">
+    .header {
+        min-width: 100%;
+        margin: 0 auto var(--section-spacing);
+        max-width: 58rem;
+        display: flex;
+        justify-content: end;
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1;
+    }
+</style>

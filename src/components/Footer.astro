@@ -1,0 +1,96 @@
+---
+export interface Props {
+    message?: string;
+}
+
+const { message } = Astro.props;
+---
+
+<footer class="animate__animated animate__slideInUp">
+    {message && (<div class="action">
+        {message === 'work together' && (
+            <div class="message">
+                <a>Let's work <span>together</span></a>
+            </div>
+        )}
+    </div>
+    )}
+    <div class="bottom">
+        <div class="left">
+            <p>Karina Tovar</p>
+            <p>© 2023</p>
+        </div>
+        <div class="right">
+            <a href="/" target="">Built with ❤️</a>
+            <a href="mailto:hello@karinatovar.com" target="_blank">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;  
+    }
+    .bottom {
+        width: calc(100% - 12vw);
+        max-width: 58rem;
+        margin: 0 auto 4rem;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+
+        .left, 
+        .right {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: baseline;
+        }
+
+        .left {
+            p:first-of-type {
+                font-family: var(--font-stack-Headlines);
+            }
+        }
+    }
+    .action {
+        padding: 4rem 2rem;
+        background-image: url('/public/images/bg-footer.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        .message {
+            width: calc(100% - 12vw);
+            max-width: 58rem;
+            margin: 0 auto;
+            text-align: center;
+
+            a {
+                cursor: pointer;
+                text-decoration: none;
+                font-size: 3rem;
+                font-family: var(--font-stack-Headlines);
+                
+                span {
+                    display: inline-flex;
+                    color: inherit;
+                    background-image: url('/public/images/footer-span.svg');
+                    background-position: center bottom;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transition: all .3s ease-in-out;
+                    padding-bottom: 1rem;
+                }
+
+                &:hover span {
+                    color: var(--green500);
+                }
+            }
+        }
+
+    }
+</style>
