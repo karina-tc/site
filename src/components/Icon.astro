@@ -1,0 +1,34 @@
+---
+export interface Props {
+    name: string;
+    size: string;
+}
+
+function assignThickness(innerHTML: string, dimension: string) {
+    let result = innerHTML.replace(`width="24"`, `width="${dimension}"`);
+    result = result.replace(`height="24"`, `height="${dimension}"`);
+    return result;
+}
+
+const { name, size } = Astro.props as Props;
+const { default: svg } = await import(`../icons/${name}.svg?raw`);
+let dimension: string, thickness: number;
+
+switch (size) {
+    case "small":
+        dimension = "24";
+        break;
+    case "medium":
+        dimension = "32";
+        break;
+    case "large":
+        dimension = "48";
+        break;
+    default:
+        dimension = "24";
+}
+
+const innerHTML = assignThickness(svg, dimension);
+---
+
+<Fragment set:html={innerHTML} />

@@ -1,9 +1,12 @@
 :root {
     /* TYPOGRAPHY */
     --em-size: 18px;
-    --section-spacing: 4.5rem;
-    --font-stack-Headlines: "Otomanopee one", system-ui, sans-serif;
-    --font-stack-Copy: "Prompt",  system-ui, sans-serif;
+    --spacing-xsmall: 1rem;
+    --spacing-small: 2rem;
+    --spacing-medium: 4rem;
+    --spacing-large: 6rem;
+    --font-headlines: 'IBM Plex Serif', system-ui, serif;
+    --font-copy: 'Work Sans',  system-ui, sans-serif;
 
     /* EXTRA */
     --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
@@ -16,74 +19,23 @@
     --green300: #A2D3AC;
     --green500: #7BB587;
     --greenHighlight: #A0F9B2;
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-@font-face {
-    font-family: "Otomanopee One";
-    src: url("/fonts/OtomanopeeOne-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-thin-webfont.woff2") format("woff2");
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-extralight-webfont.woff2") format("woff2");
-    font-weight: 200;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-light-webfont.woff2") format("woff2");
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-regular-webfont.woff2") format("woff2");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-medium-webfont.woff2") format("woff2");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-demibold-webfont.woff2") format("woff2");
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-semibold-webfont.woff2") format("woff2");
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-bold-webfont.woff2") format("woff2");
-    font-weight: 800;
-}
-
-@font-face {
-    font-family: "Silka";
-    src: url("/fonts/silka-black-webfont.woff2") format("woff2");
-    font-weight: 900;
+    /* BRAND */
+    --brandDark: #09373A;
+    --brand900: #0E3617;
+    --brand700: #41694A;
+    --brand500: #74AE80;
+    --brand300: #A0FFB4;
+    --brand100: #C9F9D3;
+    --brand50: #ECFAEF;
+    --brandLight: #F6FFF8;
+    --white: #fff;
+    --dim-layer: rgba(9, 55, 58, 0.95);
 }
 
 
 html {
-    background-color: var(--green100);
+    background-color: var(--brandLight);
     font-family: sans-serif;
 }
 
@@ -91,14 +43,14 @@ body {
     line-height: 180%;
     -webkit-font-smoothing: antialiased;
     font-size: var(--em-size);
-    color: var(--greenInk);
+    color: var(--brandDark);
     display: flex;
     flex-direction: row;
     gap: 0;
     height: 100vh;
     width: 100vw;
     line-height: 1.5;
-    font-family: var(--font-stack-Copy);
+    font-family: var(--font-copy);
     font-weight: 500;
     margin: 0 auto;
 }
@@ -108,13 +60,10 @@ body {
 }
 
 ::selection {
-    background: var(--greenHighlight)
-    /* WebKit/Blink Browsers */
+    background: var(--brand300)
 }
-
 ::-moz-selection {
-    background: var(--greenHighlight)
-    /* Gecko Browsers */
+    background: var(--brand300)
 }
 
 
@@ -142,34 +91,47 @@ body {
   h4,
   h5,
   h6 {
-        color: var(--greenInk);
+        color: var(--brandDark);
         overflow-wrap: break-word;
   }
 
   h1 {
-      font: 5rem/120% var(--font-stack-Headlines);
+      font: 8rem/100% var(--font-headlines);
       margin: 0;
+      font-weight: 600;
+      letter-spacing: -4px;
   }
 
   h2 {
-      font: 2rem/120% var(--font-stack-Headlines);
-      margin: 0rem;
+      font: 2.5rem/120% var(--font-headlines);
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -2px;
   }
 
   h3 {
-      font: 1.25rem/120% var(--font-stack-Headlines);
-      margin: 0;
+      font: 1.5rem/120% var(--font-headlines);
+      margin: 0 0 .5rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+
   }
 
   p, 
   ul, 
   ol, 
   li {
-    font-family: var(--font-stack-Copy);
+    font-family: var(--font-copy);
     line-height: 180%;
   }
 
   a {
-    color: var(--greenInk);
+    color: inherit;
+  }
+
+  .spacer {
+      content: '';
+      width: 100%;
+      padding: 2rem;
   }
   

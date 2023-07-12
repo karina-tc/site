@@ -7,30 +7,21 @@ import Button from '../components/Button.astro'
 
 ---
 
-<BaseLayout pageTitle='Home' background='background-main'>
+<BaseLayout pageTitle='Home' background='background-main' footerMemoji='thumbsup' footerMessage='work' footerTarget='/'>
+	<div class="spacer"></div>
 	<Content>
-		<Ribbon
-			headline='Well hello'
-			image="public/images/memoji-thumbsup.png">
-			<div>
-				<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-			</div>
-			<div class="ribbon-links">
-				<Button text='About' href='/about/' target='' />
-				<Button text='Resume' href='/resume/' target='' />
-				<Button text='Testimonials' href='/testimonials/' target='' />
-			</div>
-		</Ribbon>
+		<h1>Welcome, friend. <span>Happy you’re here!</span></h1>
 	</Content>
 	<Content>
 		<h2>What I do</h2>
 	</Content>
-	<Content>
-		<h2>Where I am</h2>
-	</Content>
 </BaseLayout>
 
 <style lang="scss">
+	h1 span {
+		color: var(--brand500);
+		font-weight: 400;
+	}
 	.ribbon-links {
 		padding-top: 1rem;
 		display: flex;
