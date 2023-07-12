@@ -1,0 +1,136 @@
+---
+export interface Props {
+
+}
+
+const {
+
+} = Astro.props;
+
+import Icon from "../components/Icon.astro";
+import MenuLink from "./MenuLink.astro";
+---
+
+<article id="open-sesame">
+    <section class="menu-content">
+        <div class="menu-topper">
+            <span>Menu</span>
+            <a class="close-icon" href="#menu">
+                <Icon name="circle_close" size="small" />
+            </a>
+        </div>
+        <div class="menu-links">
+            <MenuLink href="/" icon="home_smile" label="Home" />
+            <MenuLink href="/about" icon="eye_open" label="About" />
+            <MenuLink href="/work" icon="book_open" label="Work" />
+            <MenuLink href="/dabbles" icon="skew" label="Dabbles" />
+            <MenuLink href="/posts" icon="feather" label="Thoughts" />
+            <MenuLink href="/artwork" icon="palette" label="Artwork" />
+            <MenuLink href="/resume" icon="clip" label="Resume" />
+            <MenuLink href="/testimonials" icon="megaphone" label="Testimonials" />
+        </div>
+        <div class="menu-footer">
+            <span>Get in touch</span>
+            <a href="mailto:hello@karinatovar.com" target="_blank">Email me</a>
+            <a href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+</article>
+
+<style lang="scss">
+    /* This handles the overlay or dim layer */
+    article {
+        pointer-events: none;
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        align-items: flex-start;
+        padding: var(--spacing-medium) 0;
+        justify-content: center;
+        inset: 0;
+        overflow: hidden;
+        background: var(--dim-layer);
+        backdrop-filter: blur(1rem);
+        transition: opacity linear 0.2s;
+        z-index: 1;
+        height: 100%;
+    }
+
+    /* When targetted with #modalID */
+    article:target {
+        pointer-events: inherit;
+        opacity: 1;
+    }
+
+    /* When the details is clicked, the animation is triggered on summary */
+    article:target section {
+        animation: appear 0.5s var(--timing-curve-bounce);
+    }
+
+    /* This handles the actual centered modal */
+    .menu {
+        
+        &-content {
+            width: 100%;
+            max-width: 42rem;
+            padding:  0 4rem;
+        }
+
+        &-topper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-headlines);
+            font-size: 3rem;
+            letter-spacing: -2px;
+            color: var(--brandLight);
+
+            .close-icon {
+                transition: all .3s ease-in-out;
+                &:hover {color: var(--brand300);}
+            }
+        }
+
+        &-links {
+            padding-top: 2rem;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &-footer {
+            padding: 2rem 0;
+            color: var(--brandLight);
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+
+            span {
+                flex: 1;
+                font-family: var(--font-headlines);
+                font-size: 1.5rem;
+                letter-spacing: -1px;
+            }
+        }
+
+    }
+
+    /* Magic */
+    @keyframes appear {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+     @media only screen and (max-width: 40rem) {
+        .menu-content .menu-links {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

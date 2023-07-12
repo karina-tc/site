@@ -1,7 +1,34 @@
 ---
-import Button from "./Button.astro";
----
+import Icon from "../components/Icon.astro";
 
-<section class="">
-    <Button text="Menu" href="/" target="" theme="dark"></Button>
+export interface Props {
+   href: string;
+}
+
+const { 
+   href 
+} = Astro.props;
+
+---
+<section id="menu" class="menu">
+    <a href={href} class="trigger">
+        <Icon name="menu" size="small"  />
+    </a>
 </section>
+
+<style lang="scss">
+    .trigger {
+        color: var(--brand300);
+        display: flex;
+        border-radius: 1.25rem;
+        padding: .75rem;
+        border: 2px solid var(--white);
+        background-color: var(--brandDark);
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: var(--brandDark);
+            background-color: var(--brand300);
+        }
+    }
+</style>

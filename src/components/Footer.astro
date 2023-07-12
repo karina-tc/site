@@ -1,16 +1,21 @@
 ---
 export interface Props {
     message?: string;
+    messageTarget?: string;
+    memoji?: string;
 }
 
-const { message } = Astro.props;
+const { message, messageTarget, memoji } = Astro.props;
 ---
 
 <footer class="animate__animated animate__slideInUp">
+    {memoji && (
+        <div class:list={`memoji ${memoji}`}></div>
+    )}
     {message && (<div class="action">
-        {message === 'work together' && (
+        {message === 'work' && (
             <div class="message">
-                <a>Let's work <span>together</span></a>
+                <a href={messageTarget}>Let's work <span>together</span></a>
             </div>
         )}
     </div>
@@ -21,8 +26,8 @@ const { message } = Astro.props;
             <p>© 2023</p>
         </div>
         <div class="right">
-            <span>Built with ❤️</span>
-            <a href="mailto:hello@karinatovar.com" target="_blank">Contact</a>
+            <span>This site was built <strong>for you</strong> ❤️</span>
+            <a href="mailto:hello@karinatovar.com" target="_blank">Say hello</a>
         </div>
     </div>
 </footer>
@@ -32,6 +37,25 @@ const { message } = Astro.props;
         display: flex;
         flex-direction: column;
         gap: 2rem;  
+    }
+
+    .memoji {
+        content: '';
+        margin: var(--spacing-medium) auto -4rem;
+        width: 10rem;
+        height: 10rem;
+        min-height: 10rem;
+        min-width: 10rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        &.thumbsup {
+            background-image: url('/public/images/memoji-thumbsup.png');
+        }
+        &.thinking {
+            background-image: url('/public/images/memoji-thinking.png');
+        }
     }
     .bottom {
         width: calc(100% - 12vw);
@@ -52,7 +76,9 @@ const { message } = Astro.props;
 
         .left {
             p:first-of-type {
-                font-family: var(--font-stack-Headlines);
+                font-family: var(--font-headlines);
+                font-weight: 600;
+                font-size: 1.3rem;
             }
         }
     }
@@ -61,7 +87,7 @@ const { message } = Astro.props;
         background-image: url('/public/images/bg-footer.png');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 100%;
 
         .message {
             width: calc(100% - 12vw);
@@ -73,7 +99,7 @@ const { message } = Astro.props;
                 cursor: pointer;
                 text-decoration: none;
                 font-size: 3rem;
-                font-family: var(--font-stack-Headlines);
+                font-family: var(--font-headlines);
                 
                 span {
                     display: inline-flex;
