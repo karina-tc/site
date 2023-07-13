@@ -21,7 +21,7 @@
     --greenHighlight: #A0F9B2;
 
     /* BRAND */
-    --brandDark: #09373A;
+    --brandDark: #032325;
     --brand900: #0E3617;
     --brand700: #41694A;
     --brand500: #74AE80;
@@ -43,7 +43,7 @@ body {
     line-height: 180%;
     -webkit-font-smoothing: antialiased;
     font-size: var(--em-size);
-    color: var(--brandDark);
+    color: var(--brand900);
     display: flex;
     flex-direction: row;
     gap: 0;
@@ -53,6 +53,7 @@ body {
     font-family: var(--font-copy);
     font-weight: 500;
     margin: 0 auto;
+    position: relative;
 }
 
 * {
@@ -84,7 +85,7 @@ body {
       font: inherit;
   }
 
-  p,
+ 
   h1,
   h2,
   h3,
@@ -96,16 +97,20 @@ body {
   }
 
   h1 {
-      font: 8rem/100% var(--font-headlines);
+      font: 6rem/100% var(--font-headlines);
       margin: 0;
       font-weight: 600;
       letter-spacing: -4px;
   }
 
+  h1.billboard {
+      font-size: 8rem
+  }
+
   h2 {
       font: 2.5rem/120% var(--font-headlines);
       margin: 0;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -2px;
   }
 
@@ -123,6 +128,7 @@ body {
   li {
     font-family: var(--font-copy);
     line-height: 180%;
+    color: inherit;
   }
 
   a {
@@ -135,3 +141,32 @@ body {
       padding: 2rem;
   }
   
+@media only screen and (max-width: 70rem) {
+    h1, h1.billboard {
+        font-size: 6rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    body {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    h1, h1.billboard {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    body {
+        font-size: 14px;
+    }
+}

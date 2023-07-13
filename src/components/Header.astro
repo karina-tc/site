@@ -13,7 +13,7 @@ import Content from '../view/Content.astro';
     .header {
         width: 100%;
         margin: auto;
-        max-width: 58rem;
+        max-width: 60rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -21,9 +21,6 @@ import Content from '../view/Content.astro';
         padding: var(--spacing-small) 0 var(--spacing-xsmall);
         top: 0rem;
         z-index: 1;
-
-        //background-color: rgb(246 255 248 / 50%);
-        //backdrop-filter: blur(6px);
 
         .mark {
             content: '';
@@ -34,6 +31,12 @@ import Content from '../view/Content.astro';
             background-image: url('/public/images/mark.svg');
             background-repeat: no-repeat;
             background-size: cover;
+        }
+    }
+
+    @media only screen and (max-width: 70rem) {
+        .header {
+            width: 90%;
         }
     }
 </style>

@@ -14,7 +14,7 @@ import MenuLink from "./MenuLink.astro";
 <article id="open-sesame">
     <section class="menu-content">
         <div class="menu-topper">
-            <span>Menu</span>
+            <h2>Menu</h2>
             <a class="close-icon" href="#menu">
                 <Icon name="circle_close" size="small" />
             </a>
@@ -30,9 +30,12 @@ import MenuLink from "./MenuLink.astro";
             <MenuLink href="/testimonials" icon="megaphone" label="Testimonials" />
         </div>
         <div class="menu-footer">
-            <span>Get in touch</span>
-            <a href="mailto:hello@karinatovar.com" target="_blank">Email me</a>
-            <a href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank">LinkedIn</a>
+            <h3>Get in touch</h3>
+            <span>
+                <a href="mailto:hello@karinatovar.com" target="_blank">Email me</a>
+                &nbsp;
+                <a href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank">LinkedIn</a>
+            </span>
         </div>
     </section>
 </article>
@@ -80,10 +83,11 @@ import MenuLink from "./MenuLink.astro";
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: var(--font-headlines);
-            font-size: 3rem;
-            letter-spacing: -2px;
             color: var(--brandLight);
+            h2 {
+                color: var(--brandLight);
+                font-weight: 400;
+            }
 
             .close-icon {
                 transition: all .3s ease-in-out;
@@ -100,16 +104,15 @@ import MenuLink from "./MenuLink.astro";
 
         &-footer {
             padding: 2rem 0;
-            color: var(--brandLight);
             display: flex;
             align-items: baseline;
+            justify-content: space-between;
             gap: 1rem;
+            color: var(--brandLight);
 
-            span {
-                flex: 1;
-                font-family: var(--font-headlines);
-                font-size: 1.5rem;
-                letter-spacing: -1px;
+            h3 {
+                color: var(--brandLight);
+                font-weight: 400;
             }
         }
 
@@ -128,7 +131,7 @@ import MenuLink from "./MenuLink.astro";
         }
     }
 
-     @media only screen and (max-width: 40rem) {
+    @media only screen and (max-width: 40rem) {
         .menu-content .menu-links {
             grid-template-columns: 1fr;
         }
