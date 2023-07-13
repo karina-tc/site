@@ -158,10 +158,10 @@ body {
 
 @media only screen and (max-width: 40rem) {
     h1, h1.billboard {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     h3 {
         font-size: 1rem;

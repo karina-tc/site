@@ -5,10 +5,11 @@ import Content from "../view/Content.astro";
 
 ---
 
-<BaseLayout pageTitle='Home' background='background-main' footerMemoji='thumbsup' footerMessage='work' footerTarget='/'>
+<BaseLayout pageTitle='Home' background='background-main' footerMemoji='thumbsup' footerMessage='work' footerTarget='/' showBanner='yes'>
 	<div class="spacer"></div>
 	<Content>
 		<h1 class="billboard">Welcome, friend. <span>Happy you’re here!</span></h1>
+		<h2 class="ps">Make yourself at home</h2>
 	</Content>
 	<Content>
 		<h2>What I do</h2>
@@ -16,9 +17,19 @@ import Content from "../view/Content.astro";
 </BaseLayout>
 
 <style lang="scss">
-	h1 span {
-		color: var(--brand500);
+	h1 {
+		text-align: center;
+		span {
+			color: var(--brand500);
+			font-weight: 400;
+		}
+	}
+
+	h2.ps {
+		text-align: center;
+		font-family: var(--font--copy);
 		font-weight: 400;
+		line-height: 180%;
 	}
 	.ribbon-links {
 		padding-top: 1rem;

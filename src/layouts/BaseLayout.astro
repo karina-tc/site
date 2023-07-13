@@ -4,6 +4,7 @@ import Main from "../view/Main.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import MenuModal from "../components/menu/MenuModal.astro";
+import MarqueeBanner from "../components/banners/MarqueeBanner.astro";
 
 export interface Props {
  	pageTitle: string;
@@ -11,8 +12,9 @@ export interface Props {
     footerMessage?: string;
     footerTarget?: string;
     footerMemoji?: string;
+    showBanner?: string;
 }
-const {pageTitle, background, footerMessage, footerTarget, footerMemoji } = Astro.props;
+const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBanner } = Astro.props;
 ---
 
 <html lang="en">
@@ -36,6 +38,7 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji } = Astr
 
     </head>
     <body class:list={`base ${background}`}>
+        {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/ target='_blank' />)}
         <Header pageTitle={pageTitle} />
         <Main>
             <slot></slot>
@@ -59,4 +62,5 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji } = Astr
             background-size: contain;
         }
     }
+
 </style>

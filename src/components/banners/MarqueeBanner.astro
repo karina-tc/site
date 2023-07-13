@@ -1,0 +1,79 @@
+---
+
+export interface BannerProps {
+    text: string;
+    link?: string;
+    target?: string;
+}
+
+const { text, link, target } = Astro.props;
+
+---
+
+
+<div class="banner marquee">
+    <a class="banner-container" href={link} target={target}>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+        <span>{text}</span>
+    </a>
+</div>
+
+
+<style lang="scss">
+    .banner {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        position: relative;
+        background-color: var(--brand300);
+        margin-top: -2rem;
+
+        &-container {
+            position: absolute;
+            overflow: hidden;
+            inset: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            text-decoration: none;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                color: var(--brandLight);
+                background-color: var(--brand900);
+            }
+
+            span {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: .8rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1rem;
+                flex-shrink: 0;
+                animation: marquee 20s linear infinite;
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    }
+</style>
