@@ -35,7 +35,7 @@ const { text, link, target } = Astro.props;
         flex-wrap: nowrap;
         overflow: hidden;
         position: relative;
-        background-color: var(--brand300);
+        background-color: var(--brand100);
         margin-top: -2rem;
 
         &-container {
@@ -48,11 +48,6 @@ const { text, link, target } = Astro.props;
             text-decoration: none;
             transition: all .3s ease-in-out;
 
-            &:hover {
-                color: var(--brandLight);
-                background-color: var(--brand900);
-            }
-
             span {
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -63,7 +58,13 @@ const { text, link, target } = Astro.props;
                 align-items: center;
                 margin-right: 1rem;
                 flex-shrink: 0;
+                opacity: .8;
                 animation: marquee 20s linear infinite;
+            }
+
+            &:hover {
+                background-color: var(--brand300);
+                span {opacity: 1;}
             }
         }
 

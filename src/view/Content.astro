@@ -1,14 +1,35 @@
 ---
 
+export interface Props {
+    space?: string;
+}
+
+const {
+    space = 'large',
+} = Astro.props;
+
 ---
 
-<div class="content">
+<div class:list={`content ${space}`}>
     <slot></slot>
 </div>
 
 <style lang="scss">
     .content {
         width: 100%;
-        padding: 0 0 var(--spacing-large);
+        padding: 0 0 0;
+
+        &.large {
+            padding-bottom: var(--spacing-large);
+        }
+        &.medium {
+            padding-bottom: var(--spacing-medium);
+        }
+        &.small {
+            padding-bottom: var(--spacing-small);
+        }
+        &.xsmall {
+            padding-bottom: var(--spacing-xsmall);
+        }
     }
 </style>

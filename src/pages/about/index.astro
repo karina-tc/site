@@ -1,45 +1,100 @@
 ---
-const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Karina",
-  country: "United States",
-  occupation: "Senior Product Designer"
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Content from "../../view/Content.astro";
+import Icon from "../../components/Icon.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <h1>{pageTitle}</h1>
-        <h2>... and my new Astro site!</h2>
+<BaseLayout
+    pageTitle="About me"
+    footerMessage="work"
+    footerTarget="/"
+    showBanner="yes"
+>
+    <div class="spacer"></div>
+    <Content space="small">
+        <h1 class="billboard">Artist <span>turned product</span> designer</h1>
+        <p class="billboard">In my previous life, I dedicated myself to crafting artwork that transformed the unexpected into beautiful life happenings.</p>
+    </Content>
+    <Content space="xsmall">
+        <div class="parent-container">
+            <div class="columns">
+                <div class="cell">
+                    <div class="card fill">
+                        <img src="/images/grind-1.png" alt="Grind" />
+                    </div>
+                    <a class="card-cta" href="">Watch this performance</a>
+                </div>
+                <div class="cell">
+                    <div class="card">
+                        <img src="/images/grind-2.png" alt="Grind" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Content>
+    <Content>
+        <p class="billboard">My hope was to help improve people’s life. So my transition into UX was only natural. My goal is to put a smile in people’s face with what I do.</p>
+    </Content>
+</BaseLayout>
 
-        <p>
-            I am working through Astro's introductory tutorial. This is the
-            second page on my website, and it's the first one I built myself!
-        </p>
+<style lang="scss">
+    h1.billboard {
+        span {
+            color: var(--brand500);
+            font-weight: 400;
+        }
+    }
 
-        <p>
-            This site will update as I complete more of the tutorial, so keep
-            checking back and see how my journey is going!
-        </p>
-        <p>Here are a few facts about me:</p>
-        <ul>
-            <li>My name is {identity.firstName}.</li>
-            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-        </ul>
-        <p>My skills are:</p>
-        <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
-        </ul>
-    </body>
-</html>
+    p.billboard {
+        margin-top: var(--spacing-medium);
+        font-size: 1.5rem;
+        text-align: center;
+        letter-spacing: -1px;
+    }
+
+    .parent-container {
+        height: 100%;
+        .columns {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: var(--spacing-small);
+            height: 100%;
+        }
+
+        .cell {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-small);
+        }
+
+        .card {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+
+            &.fill {
+                padding-bottom: 2.2rem;
+            }
+        }
+
+        .card-cta {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-small);
+            color: var(--brandLight);
+            background-color: var(--black);
+            border-radius: var(--border-radius);
+            font-family: var(--font-headlines);
+            text-decoration: none;
+        }
+    }
+</style>

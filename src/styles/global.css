@@ -7,11 +7,13 @@
     --spacing-large: 6rem;
     --font-headlines: 'IBM Plex Serif', system-ui, serif;
     --font-copy: 'Work Sans',  system-ui, sans-serif;
+    --border-radius: 1.5rem;
 
     /* EXTRA */
     --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
 
     /* COLORS */
+    --black: #000;
     --greenInk: #56695A;
     --greenPaper: #F6FFF9;
     --green100: #E9F7EC;
@@ -104,7 +106,8 @@ body {
   }
 
   h1.billboard {
-      font-size: 8rem
+      font-size: 8rem;
+      text-align: center;
   }
 
   h2 {
