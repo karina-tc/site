@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
 import Icon from "../../components/Icon.astro";
+import CardsGrid from "../../view/ CardsGrid.astro";
+import TextCard from "../../components/cards/TextCard.astro";
 ---
 
 <BaseLayout
@@ -9,6 +11,7 @@ import Icon from "../../components/Icon.astro";
     footerMessage="work"
     footerTarget="/"
     showBanner="yes"
+    footerMemoji="thumbsup"
 >
     <div class="spacer"></div>
     <Content space="small">
@@ -35,23 +38,79 @@ import Icon from "../../components/Icon.astro";
     <Content>
         <p class="billboard">My hope was to help improve people’s life. So my transition into UX was only natural. My goal is to put a smile in people’s face with what I do.</p>
     </Content>
+    <Content space="large">
+        <h2>Work style</h2>
+        <CardsGrid columns="two">
+            <TextCard
+                title="Work from home"
+                copy="T-shirt, jeans, socks and no shoes for me" 
+            />
+            <TextCard
+                title="In the morning"
+                copy="Focus is a sip of coffee away" 
+            />
+            <TextCard
+                title="With a team"
+                copy="The more brainpower the better" 
+            />
+            <TextCard
+                title="Open door"
+                copy="Thinking and building in the open" 
+            />
+        </CardsGrid>
+    </Content>
+    <Content space="large">
+        <h2>Values</h2>
+        <div class="values">
+            <div class="cell">Ownership</div>
+            <div class="cell">Humor</div>
+            <div class="cell">Curiosity</div>
+            <div class="cell">Honesty</div>
+            <div class="cell">Creativity</div>
+            <div class="cell">Calmness</div>
+        </div>
+    </Content>
+    <Content space="large">
+        <h2>Interests</h2>
+        <CardsGrid columns="three">
+            <TextCard
+                title="🌮 🍟 🍜"
+                copy="Food is my love language" 
+            />
+            <TextCard
+                title="🐶 📽 ⚽️"
+                copy="Indoor cat, outdoor dog" 
+            />
+            <TextCard
+                title="✍️ 📒 🔨"
+                copy="Constant learner" 
+            />
+        </CardsGrid>
+    </Content>
+    <Content space="large">
+        <h2>FAQs</h2>
+        <CardsGrid columns="two">
+            <TextCard
+                title="I am from Mexico City"
+                copy="But I’ve been a New Englander for a while" 
+            />
+            <TextCard
+                title="I like art films"
+                copy="Under the Skin, anyone?" 
+            />
+            <TextCard
+                title="Language fascinates me"
+                copy="Metaphors make me brain giddy" 
+            />
+            <TextCard
+                title="I am from Mexico City"
+                copy="I’ve a daughter, a dog, and too many hats" 
+            />
+        </CardsGrid>
+    </Content>
 </BaseLayout>
 
 <style lang="scss">
-    h1.billboard {
-        span {
-            color: var(--brand500);
-            font-weight: 400;
-        }
-    }
-
-    p.billboard {
-        margin-top: var(--spacing-medium);
-        font-size: 1.5rem;
-        text-align: center;
-        letter-spacing: -1px;
-    }
-
     .parent-container {
         height: 100%;
         .columns {
@@ -97,4 +156,18 @@ import Icon from "../../components/Icon.astro";
             text-decoration: none;
         }
     }
+
+    .values {
+        display: flex;
+        padding: var(--spacing-small) 0 0;
+        gap: var(--spacing-xsmall);
+
+        .cell {
+            background-color: var(--brand100);
+            text-align: center;
+            padding: .5rem 1rem;
+            border-radius: .25rem;
+        }
+    }
+
 </style>
