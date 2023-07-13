@@ -15,7 +15,7 @@ const { message, messageTarget, memoji } = Astro.props;
     {message && (<div class="action">
         {message === 'work' && (
             <div class="message">
-                <a href={messageTarget}>Let's work <span>together</span></a>
+                <a href={messageTarget}><h2>Let's work <span>together</span></h2></a>
             </div>
         )}
     </div>
@@ -63,6 +63,7 @@ const { message, messageTarget, memoji } = Astro.props;
         margin: 0 auto 4rem;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: baseline;
         justify-content: space-between;
 
@@ -98,7 +99,6 @@ const { message, messageTarget, memoji } = Astro.props;
             a {
                 cursor: pointer;
                 text-decoration: none;
-                font-size: 3rem;
                 font-family: var(--font-headlines);
                 
                 span {
@@ -118,5 +118,20 @@ const { message, messageTarget, memoji } = Astro.props;
             }
         }
 
+    }
+    @media only screen and (max-width: 40rem) {
+        .bottom {
+            align-items: center;
+            .left, .right {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        .memoji {
+            width: 6rem;
+            height: 6rem;
+            min-height: 6rem;
+            min-width: 6rem;
+        }
     }
 </style>
