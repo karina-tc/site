@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
 import Icon from "../../components/Icon.astro";
+import TextCard from "../../components/cards/TextCard.astro";
 ---
 
 <BaseLayout
@@ -12,8 +13,33 @@ import Icon from "../../components/Icon.astro";
 >
     <div class="spacer"></div>
     <Content>
-        <h1 class="billboard">Testimonials</h1>
+        <h1 class="billboard">Let's work <span>together</span></h1>
+        <p class="billboard">Fast, strategic, focused. Just a few things previous teammates hav said about working with me.</p>
+        <div class="spacer-small"></div>
+        <div class="quotes-wrapper">
+            <TextCard type="quote" title="Worked together at Glue" copy="Anna is Senior Product Manager at Glue" author="Anna von Clemm">
+                <p slot="quote"><strong>Karina conducts a highly partnership-driven design process</strong> where the product and design owners are going back and forth to create something great. She is also great at collaborating to figure out what is possible and get ideas flowing between all teams.</p>
+            </TextCard>
+            <TextCard type="quote" title="Worked together at Glue" copy="Anna is Senior Product Manager at Glue" author="Anna von Clemm">
+                <p slot="quote"><strong>Karina conducts a highly partnership-driven design process</strong> where the product and design owners are going back and forth to create something great. She is also great at collaborating to figure out what is possible and get ideas flowing between all teams.</p>
+            </TextCard>
+            <TextCard type="quote" title="Worked together at Glue" copy="Anna is Senior Product Manager at Glue" author="Anna von Clemm">
+                <p slot="quote"><strong>Karina conducts a highly partnership-driven design process</strong> where the product and design owners are going back and forth to create something great. She is also great at collaborating to figure out what is possible and get ideas flowing between all teams.</p>
+            </TextCard>
+            <TextCard type="quote" title="Worked together at Glue" copy="Anna is Senior Product Manager at Glue" author="Anna von Clemm">
+                <p slot="quote"><strong>Karina conducts a highly partnership-driven design process</strong> where the product and design owners are going back and forth to create something great. She is also great at collaborating to figure out what is possible and get ideas flowing between all teams.</p>
+            </TextCard>
+            <TextCard type="quote" title="Worked together at Glue" copy="Anna is Senior Product Manager at Glue" author="Anna von Clemm">
+                <p slot="quote"><strong>Karina conducts a highly partnership-driven design process</strong> where the product and design owners are going back and forth to create something great. She is also great at collaborating to figure out what is possible and get ideas flowing between all teams.</p>
+            </TextCard>
+        </div>
     </Content>
 </BaseLayout>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .quotes-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2rem;
+    }
+</style>
