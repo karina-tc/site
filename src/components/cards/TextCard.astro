@@ -4,9 +4,10 @@ export interface Props {
     title: string;
     copy: string;
     author?: string;
+    image?: string;
 }
 
-const { type = "simple", title = "title" , copy = "Lorem ipsum", author} = Astro.props;
+const { type = "simple", title = "title" , copy = "Lorem ipsum", author, image = "/images/quote-avc.png" } = Astro.props;
 ---
 
 
@@ -19,7 +20,7 @@ const { type = "simple", title = "title" , copy = "Lorem ipsum", author} = Astro
 {type === 'quote' && (
     <div class="card-cell quote">
         <div class="quote-image">
-            <img src="/images/quote-avc.png" alt={author} draggable="false" />
+            <img src={image} alt={author} draggable="false" />
         </div>
         <div class="quote-text">
             <slot name="quote"></slot>
@@ -59,7 +60,7 @@ const { type = "simple", title = "title" , copy = "Lorem ipsum", author} = Astro
 
             .quote-image {
                 content: '';
-                min-width: 270px;
+                min-width: 250px;
                 min-height: 270px;
                 flex: 1;
                 display: flex;
@@ -68,6 +69,10 @@ const { type = "simple", title = "title" , copy = "Lorem ipsum", author} = Astro
                 background-color: var(--brand100);
 
                 img {max-width: 250px;}
+
+                @media only screen and (min-width: 50rem) {
+                    max-width: 250px;
+                }
             }
 
             .quote-text {
