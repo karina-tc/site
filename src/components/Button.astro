@@ -18,24 +18,30 @@ const { text, href, target, theme } = Astro.props;
 <style lang="scss">
     .button {
 		width: fit-content;
-        font-size: 1.1rem;
         display: flex;
         text-decoration: none;
-		padding: .5rem 1rem;
+		font-size: 1.1rem;
+		padding: var(--spacing-xsmall) var(--spacing-small);
 		border-radius: 1rem;
 		transition: all .3s ease-in-out;
-        background-color: var(--greenPaper);
-		border: 2px solid var(--greenPaper);
+        background-color: var(--brandLight);
+		border: 2px solid var(--brandLight);
 
 		&:hover {
-			border-color: var(--greenInk);
-			background-color: var(--green200);
+			border-color: var(--brandDark);
+			background-color: var(--brandLight);
 		}
 
-		&.dark {
+		&.primary {
 			font-weight: 700;
-			color: var(--greenPaper);
-			background-color: var(--greenInk);
+			color: var(--greenDark);
+			background-color: var(--brand300);
+
+			&:hover {
+				color: var(--brandLight);
+				border-color: var(--greenPaper);
+				background-color: var(--brandDark);
+			}
 		}
 	}
 </style>
