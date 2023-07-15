@@ -26,35 +26,56 @@ import Icon from "../../components/Icon.astro";
     <Content>
         <h2>Experience</h2>
         <ExperienceRow
-                        type="main"
-                        year="2023"
-                        title="Senior Product Designer"
-                        company="Glue"
-                        startDate="June 2022"
-                        endDate=" July 2023"
-                        summary="As a member of the Product Leadership team, I collaborated with Product Management, Engineering, Data Science, and Sales teams to develop an AI-powered employee connection engine.">
+            type="main"
+            year="2023"
+            title="Senior Product Designer"
+            company="Glue"
+            startDate="June 2022"
+            endDate=" July 2023"
+            summary="As a member of the Product Leadership team, I collaborated with Product Management, Engineering, Data Science, and Sales teams to develop an AI-powered employee connection engine."
+            highlights="yes">
+            <ul>
+                <li>Partnered with Marketing on rebranding efforts of Glue, including renaming the company and designing the new visual identity for Glue that led to improved customer engagement.</li>
+                <li>Conducted user and prospect interviews to create an Ideal Customer Profile (ICP), enabling a better understanding of Glue's target audience across the organization.</li>
+                <li>Conducted user testing for features internally and externally.</li>
+                <li>Was part of strategy and vision building for the product.</li>
+                <li>Built core features for Glue's product that required close collaboration between the product and data science teams.</li>
+                <li>Collaborated on the creation of a design system for the product that improved improve usability, scalability, and overall user experience.</li>
+            </ul>
         </ExperienceRow>
         <ExperienceRow
-                        type="main"
-                        year="2022"
-                        title="Staff Product Designer"
-                        company="Teikametrics"
-                        startDate="June 2020"
-                        endDate=" May 2022"
-                        summary="I contributed to the transformation of Teikametrics' flagship application, Flywheel, into a powerful AI-based solution for managing advertising for eCommerce sellers on Amazon and Walmart.">
+            type="main"
+            year="2022"
+            title="Staff Product Designer"
+            company="Teikametrics"
+            startDate="June 2020"
+            endDate=" May 2022"
+            summary="I contributed to the transformation of Teikametrics' flagship application, Flywheel, into a powerful AI-based solution for managing advertising for eCommerce sellers on Amazon and Walmart."
+            highlights="yes">
+            <ul>
+                <li>Co-founded Flywheel's Design System in partnership with engineering, introducing rapid prototyping and development methodologies, which led to faster product iteration cycles or improved user feedback.</li>
+                <li>Collaborated with engineers, product managers, and design team members to establish an efficient QA process, resulting in faster product releases.</li>
+                <li>Contributed to strategic discussions related to pricing structure, product architecture, and go-to-market strategy in collaboration between Marketing, Sales, Engineering, etc., which influenced the overall success of the product.</li>
+            </ul>
         </ExperienceRow>
         <ExperienceRow
-                        type="main"
-                        year="2020"
-                        title="Product Lead"
-                        company="Rejoiner"
-                        startDate="May 20215"
-                        endDate=" June 2020"
-                        summary="During my tenure at Rejoiner, I played multiple roles as Product Manager, Product Designer, and Front-end Developer, driving the company's transformation from an agency partner to a full-fledged email marketing solution.">
+            type="main"
+            year="2020"
+            title="Product Lead"
+            company="Rejoiner"
+            startDate="May 20215"
+            endDate=" June 2020"
+            summary="During my tenure at Rejoiner, I played multiple roles as Product Manager, Product Designer, and Front-end Developer, driving the company's transformation from an agency partner to a full-fledged email marketing solution."
+            highlights="yes">
+            <ul>
+                <li>Took a leading role in product strategy and design for the development of Rejoiner's new platform, which resulted in a doubling of the company's size and increased ARR by 60%.</li>
+                <li>Drove the company's transformation from an agency partner to a full-fledged email marketing solution while focusing on product-led marketing and word-of-mouth lead generation.</li>
+                <li>Immersed myself within the agency business, managing Rejoiner's most technical accounts, and serving as a product liaison to build strong relationships with valuable customers, which increased customer retention, customer satisfaction, or business growth.</li>
+            </ul>
         </ExperienceRow>
         <ExperienceRow
-                        type="other"
-                        year="2014">
+            type="other"
+            year="2014">
         </ExperienceRow>
     </Content>
     <Content>
@@ -130,5 +151,13 @@ import Icon from "../../components/Icon.astro";
                 display: flex;
             }
         }
+    }
+
+    ul, li {
+        margin:0;
+        padding: 0 0 0 .8rem;
+    }
+    li {
+        margin-bottom: .5rem;
     }
 </style>

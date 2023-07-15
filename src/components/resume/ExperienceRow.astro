@@ -31,15 +31,8 @@ const { type, year, school, title, company, summary, startDate, endDate, highlig
             <p>{summary}</p>
             {highlights && (
                 <div class="highlights">
-                    <p>Key highlights</p>
-                    <ul>
-                        <li>Partnered with Marketing on rebranding efforts of Glue, including renaming the company and designing the new visual identity for Glue that led to improved customer engagement.</li>
-                        <li>Conducted user and prospect interviews to create an Ideal Customer Profile (ICP), enabling a better understanding of Glue's target audience across the organization.</li>
-                        <li>Conducted user testing for features internally and externally.</li>
-                        <li>Was part of strategy and vision building for the product.</li>
-                        <li>Built core features for Glue's product that required close collaboration between the product and data science teams.</li>
-                        <li>Collaborated on the creation of a design system for the product that improved improve usability, scalability, and overall user experience.</li>
-                    </ul>
+                    <p><strong>Key highlights</strong></p>
+                    <slot></slot>
                 </div>
             )}
         </div>
