@@ -1,18 +1,62 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CardsGrid from '../view/CardsGrid.astro';
 import Content from "../view/Content.astro";
-
+import Icon from "../components/Icon.astro";
+import IntroCard from '../components/cards/IntroCard.astro';
 
 ---
 
-<BaseLayout pageTitle='Home' background='background' footerMemoji='thumbsup' footerMessage='work' footerTarget='/' showBanner='yes'>
+<BaseLayout pageTitle='Home' background='background' footerMemoji='thumbsup' footerMessage='about' footerTarget='/' showBanner='yes'>
 	<div class="spacer"></div>
 	<Content>
 		<h1 class="billboard">Welcome, friend. <span>Happy you’re here!</span></h1>
 		<h2 class="ps">Make yourself at home</h2>
 	</Content>
 	<Content>
-	
+		<CardsGrid columns='two'>
+			<IntroCard
+				type='link'
+				theme='primary'
+				headline='Work'
+				image='/images/work-thumb.png'
+				imageAlt='Case studies'
+				href='/work/'>
+				Case studies
+			</IntroCard>
+			<IntroCard
+				type='link'
+				theme='primary'
+				headline='Dabbles'
+				image='/images/dabbles-thumb.png'
+				imageAlt='Case studies'
+				href='/dabbles/'>
+				Side projects
+			</IntroCard>
+			<IntroCard
+				type='link'
+				headline='Thoughts'
+				href='/posts/'
+				icon='yes'>
+				My thought bubble
+			</IntroCard>
+			<IntroCard
+				type='link'
+				headline='Artwork'
+				href='/artwork/'
+				icon='yes'>
+				Art archive
+			</IntroCard>
+			<IntroCard
+				headline='Located'>
+				Somewhere around New England, USA
+			</IntroCard>
+			<IntroCard
+				headline='Social'>
+				<a href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank">LinkedIn</a>&nbsp;·&nbsp;<a href="https://github.com/karina-tc" target="_blank">Github</a>
+			</IntroCard>
+			</div>
+		</CardsGrid>
 	</Content>
 </BaseLayout>
 
@@ -32,5 +76,65 @@ import Content from "../view/Content.astro";
 		padding-top: 1rem;
 		display: flex;
 		gap: 1rem;
+	}
+
+	.intro-card {
+		width: 100%;
+		display: flex;
+		border-radius: 1rem;
+		flex-direction: row;
+		text-decoration: none;
+		background-color: var(--brand50);
+		overflow: hidden;
+		position: relative;
+		transition: all .2s ease-in-out;
+
+		&.primary {
+			background-color: var(--brand100);
+			.text {
+				padding: var(--spacing-medium) var(--spacing-small);
+			}
+		}
+		.text {
+			flex: 1;
+			padding: var(--spacing-small);
+			h2 {
+				font-weight: 400;
+			}
+			p {
+				margin: .5rem 0 0;
+			}
+			a {
+				text-decoration: underline;
+			}
+		}
+		.image {
+			flex: 0 0 50%;
+			color: var(--white);
+			background-color: var(--brandDark);
+		}
+
+		.icon {
+			position: absolute;
+			height: 100%;
+			width: 24px;
+			right: var(--spacing-small);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: all .2s ease-in-out;
+		}
+
+		&:hover {
+			background-color: var(--brand300);
+			&.link {
+				margin: -8px 0 8px;
+			}
+
+			.icon {
+				opacity: 1;
+			}
+		}
 	}
 </style>

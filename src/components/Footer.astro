@@ -13,9 +13,19 @@ const { message, messageTarget, memoji } = Astro.props;
         <div class:list={`memoji ${memoji}`}></div>
     )}
     {message && (<div class="action">
-        {message === 'work' && (
+        {message === 'together' && (
             <div class="message">
-                <a href={messageTarget}><h2>Let's work <span>together</span></h2></a>
+                <a href="/testimonials/"><h2>Let's work <span>together</span></h2></a>
+            </div>
+        )}
+        {message === 'about' && (
+            <div class="message">
+                <a href="/about/"><h2>Get to <span>know me</span></h2></a>
+            </div>
+        )}
+        {message === 'resume' && (
+            <div class="message">
+                <a href="/resume/"><h2>See my <span>resume</span></h2></a>
             </div>
         )}
     </div>
@@ -84,7 +94,7 @@ const { message, messageTarget, memoji } = Astro.props;
         }
     }
     .action {
-        padding: 4rem 2rem;
+        padding: 5rem 2rem;
         background-image: url('/public/images/bg-footer.png');
         background-position: center;
         background-repeat: no-repeat;
