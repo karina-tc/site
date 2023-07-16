@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CardsGrid from "../../view/CardsGrid.astro";
 import Content from "../../view/Content.astro";
-import Icon from "../../components/Icon.astro";
+import IntroCard from "../../components/cards/IntroCard.astro";
 ---
 
 <BaseLayout
@@ -12,7 +13,20 @@ import Icon from "../../components/Icon.astro";
 >
     <div class="spacer"></div>
     <Content>
-        <h1 class="billboard">Dabbles</h1>
+        <h1 class="billboard">Side <span>projects</span></h1>
+        <div class="spacer"></div>
+        <CardsGrid columns="two">
+            <IntroCard
+                type="link"
+                theme="primary"
+                headline="RealChar AI"
+                image="/images/dabbles-thumb.png"
+                imageAlt="Real Char case study"
+                href="/dabbles/"
+            >
+                <p>2023 · Glue</p>
+            </IntroCard>
+        </CardsGrid>
     </Content>
 </BaseLayout>
 

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CardsGrid from '../../view/CardsGrid.astro';
 import Content from "../../view/Content.astro";
-import Icon from "../../components/Icon.astro";
+import IntroCard from '../../components/cards/IntroCard.astro';
 ---
 
 <BaseLayout
@@ -13,7 +14,47 @@ import Icon from "../../components/Icon.astro";
 >
     <div class="spacer"></div>
     <Content>
-        <h1 class="billboard">Work</h1>
+        <h1 class="billboard">Product design <span>case studies</span></h1>
+        <div class="spacer"></div>
+        <CardsGrid columns="two">
+            <IntroCard
+                width="full"
+				type='link'
+				theme='primary'
+				headline='Boosting sales closures by 40%, through simplicity while deepening employee insights'
+				image='/images/work-thumb.png'
+				imageAlt='Pulse case study'
+				href='/work/'>
+				<p>2023 · Glue</p>
+			</IntroCard>
+            <IntroCard
+                width="full"
+				type='link'
+				headline='Expediting users onboarding and activation'
+				image='/images/work-thumb.png'
+				imageAlt='Onboarding case study'
+				href='/work/'>
+				<p>2023 · Glue</p>
+			</IntroCard>
+            <IntroCard
+                width="full"
+				type='link'
+				headline='Increasing user activation by more than 30% for a MarTech AI-powered leader'
+				image='/images/work-thumb.png'
+				imageAlt='Flywheel case study'
+				href='/work/'>
+				<p>2022 · Teikametrics</p>
+			</IntroCard>
+            <IntroCard
+                width="full"
+                type='link'
+                headline='Building a marketable product that users loved&mdash;from scratch'
+                image='/images/work-thumb.png'
+                imageAlt='Rejoiner case study'
+                href='/work/'>
+                <p>2020 · Rejoiner</p>
+            </IntroCard>
+        </CardsGrid>
     </Content>
 </BaseLayout>
 

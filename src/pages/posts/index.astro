@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CardsGrid from "../../view/CardsGrid.astro";
+import Content from "../../view/Content.astro";
+import IntroCard from "../../components/cards/IntroCard.astro";
+---
+
+<BaseLayout
+    pageTitle="Thoughts"
+    footerMessage="together"
+    footerMemoji="thumbsup"
+    footerTarget="/"
+    showBanner="yes"
+>
+    <div class="spacer"></div>
+    <Content>
+        <h1 class="billboard">Thought <span>bubble</span></h1>
+        <div class="spacer"></div>
+        <CardsGrid columns="two">
+            <IntroCard
+                width="full"
+                theme="primary"
+                headline="Well, that got me thinking..."
+                image="/images/artwork/noise.jpeg"
+                imageAlt="Real Char case study"
+                href="/post-1/">
+                <p>Recently, someone asked me a question that completely caught me off guard...</p>
+                <p>3 mins read · Jul 2023</p>
+            </IntroCard>
+        </CardsGrid>
+    </Content>
+</BaseLayout>
+
+<style lang="scss"></style>

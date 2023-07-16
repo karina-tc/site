@@ -1,5 +1,6 @@
 ---
 export interface Props {
+	width?: string;
     type?: string;
     theme?: string;
     headline?: string;
@@ -9,13 +10,13 @@ export interface Props {
     href?: string;
 }
 
-const { type, theme, headline, image, imageAlt, icon, href } = Astro.props;
+const { width, type, theme, headline, image, imageAlt, icon, href } = Astro.props;
 
 import Icon from "../../components/Icon.astro";
 ---
 
 {type === 'link' && (
-    <a class={`intro-card link ${theme}`} href={href}>
+    <a class={`intro-card link ${theme} ${width}-width`} href={href}>
         <div class="text">
             <h2>{headline}</h2>
             <p><slot /></p>
@@ -33,10 +34,10 @@ import Icon from "../../components/Icon.astro";
     </a>
 )}
 {type != 'link' && (
-    <div class={`intro-card ${theme}`}>
+    <div class={`intro-card ${theme} ${width}-width`}>
         <div class="text">
             <h2>{headline}</h2>
-            <p><slot /></p>
+            <slot />
         </div>
         {image && (
             <div class="image">
@@ -63,6 +64,10 @@ import Icon from "../../components/Icon.astro";
 		position: relative;
 		transition: all .2s ease-in-out;
 
+		&.full-width {
+            grid-column: span 2;
+        }
+
 		&.primary {
 			background-color: var(--brand100);
 			.text {
@@ -71,12 +76,18 @@ import Icon from "../../components/Icon.astro";
 		}
 		.text {
 			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: .5rem;
+			font-weight: 400;
 			padding: var(--spacing-small);
 			h2 {
 				font-weight: 400;
+				margin: 0;
 			}
 			p {
-				margin: .5rem 0 0;
+				margin: 0;
 			}
 			a {
 				text-decoration: underline;
@@ -85,11 +96,12 @@ import Icon from "../../components/Icon.astro";
 		.image {
 			flex: 0 0 50%;
 			color: var(--white);
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
 
             img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+				flex:1;
                 transition: all .2s ease-in-out;
             }
 		}
