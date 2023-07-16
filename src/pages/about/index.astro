@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
-import Icon from "../../components/Icon.astro";
-import CardsGrid from "../../view/ CardsGrid.astro";
+import CardsGrid from "../../view/CardsGrid.astro";
 import TextCard from "../../components/cards/TextCard.astro";
 ---
 
@@ -15,7 +14,7 @@ import TextCard from "../../components/cards/TextCard.astro";
 >
     <div class="spacer"></div>
     <Content space="large">
-        <h1 class="billboard">Artist <span>turned </span> designer</h1>
+        <h1 class="billboard">Artist <span>turned</span> designer</h1>
         <p class="billboard">In my previous life, I dedicated myself to crafting artwork that transformed the unexpected into beautiful life happenings. Now, I've turned to design as my medium of choice to make monotonous experiences beautiful.</p>
         <div class="spacer-small"></div>
         <div class="parent-container">
@@ -23,13 +22,13 @@ import TextCard from "../../components/cards/TextCard.astro";
                 <span class="arrow"></span>
                 <div class="cell">
                     <div class="card fill">
-                        <img src="/images/grind-1.png" alt="Grind Performance Photo" draggable="false" />
+                        <img src="/images/artwork/grind-1.png" alt="Grind Performance Photo" draggable="false" />
                     </div>
                     <a class="card-cta" href="https://vimeo.com/61939053" target="_blank"><span>Watch this performance</span></a>
                 </div>
                 <div class="cell">
                     <div class="card">
-                        <img src="/images/grind-2.png" alt="Grind Performance Photo" draggable="false" />
+                        <img src="/images/artwork/grind-2.png" alt="Grind Performance Photo" draggable="false" />
                     </div>
                 </div>
             </div>
@@ -41,20 +40,20 @@ import TextCard from "../../components/cards/TextCard.astro";
         <CardsGrid columns="two">
             <TextCard
                 title="I am from Mexico City"
-                copy="But I’ve been a New Englander for a while" 
-            />
+                copy="But I’ve been a New Englander for a while">
+            </TextCard>
             <TextCard
                 title="I like art films"
-                copy="Under the Skin, anyone?" 
-            />
+                copy="Under the Skin, anyone?">
+            </TextCard>
             <TextCard
                 title="Language fascinates me"
-                copy="Metaphors make me brain giddy" 
-            />
+                copy="Metaphors make me brain giddy">
+            </TextCard>
             <TextCard
                 title="I am 100% human"
-                copy="I’ve a daughter, a dog, and too many hats" 
-            />
+                copy="I’ve a daughter, a dog, and too many hats">
+            </TextCard>
         </CardsGrid>
         <div class="spacer"></div>
         <h3>What I like</h3>

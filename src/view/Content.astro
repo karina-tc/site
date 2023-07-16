@@ -1,16 +1,17 @@
 ---
-
 export interface Props {
     space?: string;
+    type?: string;
 }
 
 const {
     space = 'large',
+    type = 'standard'
 } = Astro.props;
 
 ---
 
-<div class:list={`content ${space}`}>
+<div class:list={`content ${space} ${type}`}>
     <slot></slot>
 </div>
 
@@ -18,6 +19,12 @@ const {
     .content {
         width: 100%;
         padding: 0 0 0;
+        margin: 0 auto;
+
+        &.standard {
+            width: calc(100% - 12vw);
+            max-width: 58rem;
+        }
 
         &.large {
             padding-bottom: var(--spacing-large);

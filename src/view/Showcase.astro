@@ -1,0 +1,155 @@
+---
+export interface Props {
+    type?: string;
+    title?: string;
+    description?: string;
+    year?: string;
+    detail?: string;
+    image?: string;
+    href?: string;
+    target?: string;
+    label?: string;
+    color?: string;
+    className?: string;
+}
+
+const {
+    type = 'default',
+    title = 'Title',
+    description = 'Lorem ipsum',
+    year = '2000',
+    detail = 'Detail',
+    image,
+    href,
+    target,
+    label,
+    color = 'var(--brand50)',
+    className,
+} = Astro.props;
+
+---
+
+<div class="showcase" style={`background-color: ${color}`}>
+    {type === 'default' && (
+        <div class:list={`showcase-wrapper ${className}`} style={`background-image: url('${image}');`}>
+            <a class="showcase-sign" href={href} target={target}>
+                {label && <span class="label">{label}</span>}
+                <h2 class:list={`href ?? 'linked' : ''`}>{title}</h2>
+                <p>{description}</p>
+                <div class="footnotes">
+                    <span>{year}</span>
+                    <span>{detail}</span>
+                </div>
+            </a>
+        </div>
+    )}
+    {type === 'solo' && (
+        <div class="showcase-wrapper solo">
+            <slot></slot>
+        </div>
+    )}
+</div>
+
+
+
+<style lang="scss">
+    .showcase {
+        width: 100%;
+        //padding: var(--spacing-medium);
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        &:not(:only-of-type) {
+            margin-bottom: var(--spacing-medium);
+        }
+
+        &-wrapper {
+            display: flex;
+            gap: var(--spacing-small);
+            justify-items: center;
+            align-items: center;
+            width: calc(100% - 12vw);
+            //max-width: 58rem;
+            margin: 0 auto;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            &.grind {
+                background-repeat: repeat;
+                background-size: 20%;
+            }
+
+            &:not(.solo) {
+                max-height: 540px;
+                min-height: 540px;
+            }
+
+        }
+
+        &-sign {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            position: relative;
+            border-radius: 2rem;
+            padding: var(--spacing-small);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, .8);
+            border: 2px solid var(--white);
+            backdrop-filter: blur(10px);
+            
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+
+
+            h2 {
+                font-style: italic;
+                margin-top: var(--spacing-small);
+                &.linked {
+                    border-bottom: 2px solid var(--brand500);
+                    cursor: pointer;
+                    &:hover {
+                        border-color: var(--brandDark);
+                    }
+                }
+            }
+
+            .footnotes {
+                width: 100%;
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+                color: var(--brandDark);
+                opacity: .7;
+            }
+
+            .label {
+                position: absolute;
+                margin: 0 auto;
+                top: 65%;
+                padding: 4px 20px;
+                background-color: var(--brand700);
+                color: var(--brandLight);
+                font-size: .8rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                border-radius: 2rem;
+            }
+        }
+    }
+
+    @keyframes bg-animation {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+</style>

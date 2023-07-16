@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
-import Icon from "../../components/Icon.astro";
+import CardsGrid from "../../view/CardsGrid.astro";
+import ArtCard from "../../components/cards/ArtCard.astro";
 ---
 
 <BaseLayout
@@ -11,14 +12,151 @@ import Icon from "../../components/Icon.astro";
     showBanner="yes"
 >
     <div class="spacer"></div>
-    <Content space="large">
+    <Content space="small">
         <h1 class="billboard">A thesis in <span>human connectivity</span></h1>
-        <p class="billboard">As an artist, I've spent a lot of time looking for ways to connect what's disconnected. The works below reflect my passion for bringing big ideas into tangible experiences that help people connect with each other, to themselves, and to the world.</p>
+        <p class="billboard">As an artist, I've spent a lot of time looking for ways to connect what's disconnected. The works below reflect my passion for bringing concepts into tangible experiences that help people connect with each other, to themselves, and to the world.</p>
+        <div class="spacer-small"></div>
+        <CardsGrid columns="two">
+            <ArtCard
+                title="Here, There, and Everywhere"
+                details="2015, Interactive installation"
+                image1="/images/artwork/eye.png"
+                image2="/images/artwork/eye.gif"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Live"
+                details="2014, Interactive installation"
+                image1="/images/artwork/live.png"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Hello Stranger"
+                details="2014, Interactive installation"
+                image1="/images/artwork/phone.webp"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Proximal"
+                details="2014, Video performance"
+                image1="/images/artwork/proximal-thumb.webp"
+                image2="/images/artwork/proximal.gif"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Public Hearings"
+                details="2014, Video performance"
+                image1="/images/artwork/public-hearings-thumb.webp"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Sweet Nothings"
+                details="2014, Video performance"
+                image1="/images/artwork/sweet-nothings-thumb.webp"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="And Those Who Were Seen"
+                details="2014, Video performance"
+                image1="/images/artwork/and-those-thumb.webp"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Encounters"
+                details="2014, Video performance"
+                image1="/images/artwork/encounters-thumb.webp"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Grind"
+                details="2012, Video installation and performance"
+                image1="/images/artwork/grind-2.png"
+                image2="/images/artwork/grind-2.gif"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+            <ArtCard
+                title="Bruxism"
+                details="2012, Video performance"
+                image1="/images/artwork/bruxism.png"
+                image2="/images/artwork/bruxism.gif"
+                link=""
+                target=""
+                showComingSoon="yes">
+            </ArtCard>
+        </CardsGrid>
     </Content>
-    <div>
-    </div>
 </BaseLayout>
 
-<style lang="scss">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  let lazyloadImages: NodeListOf<HTMLImageElement>;
 
-</style>
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    const imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const image = entry.target as HTMLImageElement;
+          image.src = image.dataset.src!;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    }, {
+      root: document.querySelector("#container"),
+      rootMargin: "0px 0px 500px 0px"
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {
+    let lazyloadThrottleTimeout: number;
+    lazyloadImages = document.querySelectorAll(".lazy");
+
+    function lazyload() {
+      if (lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        const scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(image) {
+          const el = image;
+          if (el.offsetTop < window.innerHeight + scrollTop + 500) {
+            const url = el.getAttribute("data-src");
+            el.setAttribute("src", url!);
+            el.classList.remove("lazy");
+            lazyloadImages = document.querySelectorAll(".lazy");
+          }
+        });
+        if (lazyloadImages.length == 0) {
+          document.removeEventListener("scroll", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload); }
+});
+
+</script>
+
+

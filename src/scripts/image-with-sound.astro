@@ -1,0 +1,22 @@
+---
+
+---
+
+<script>
+    var image = document.getElementById('imageWithSound') as HTMLImageElement;
+    var sound = document.getElementById('imageSound') as HTMLAudioElement;
+    var isSoundPlaying = false;
+
+    function toggleSound() {
+        if (isSoundPlaying) {
+            sound.pause();
+            sound.currentTime = 0;
+            isSoundPlaying = false;
+        } else {
+            sound.play();
+            isSoundPlaying = true;
+        }
+    }
+
+    image.addEventListener('click', toggleSound);
+</script>
