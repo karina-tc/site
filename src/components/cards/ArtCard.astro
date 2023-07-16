@@ -13,7 +13,7 @@ export interface Props {
 const { width, image1, image2, title, details, showComingSoon, link, target } = Astro.props;
 ---
 
-<a class:list={`artcard ${width}-width`} href={link} target={target}>
+<a class:list={`artcard ${width}-width`}>
     <div class="thumb">
         {image1 && <img class="lazy start" data-src={image1} draggable="false" />}
         {image2 && <img class="lazy end" data-src={image2} draggable="false" />}
