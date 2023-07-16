@@ -66,18 +66,14 @@ const { width, image1, image2, title, details, showComingSoon, link, target } = 
             }
         }
 
-        @media(hover: hover) and (pointer: fine) {
-            &:hover {
-                background-color: var(--brand100);
-                border-color: var(--brand100);
-                .thumb {
-                    mix-blend-mode: normal;
-                    img {
-                        &.end {
-                            opacity: 1;
-                            transition: all .3s ease-in-out;
-                        }
-                    }
+        &:hover {
+            background-color: var(--brand100);
+            border-color: var(--brand100);
+            .thumb {
+                mix-blend-mode: normal;
+                img.end {
+                    opacity: 1;
+                    transition: all .3s ease-in-out;
                 }
             }
         }
