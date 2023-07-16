@@ -16,25 +16,25 @@ import Icon from "../../components/Icon.astro";
 ---
 
 {type === 'link' && (
-    <a class={`intro-card link ${theme} ${width}-width`} href={href}>
-        <div class="text">
-            <h2>{headline}</h2>
-            <p><slot /></p>
-        </div>
-        {image && (
-            <div class="image">
-                <img src={image} alt={imageAlt} />
-            </div>
-        )}
-        {icon && (
-            <div class="icon">
-                <Icon name='arrow_right' size="small" />
-            </div>
-        )}
-    </a>
+	<a class={`intro-card link ${theme} ${width}-width`} href={href}>
+		<div class="text">
+			<h2>{headline}</h2>
+			<p><slot /></p>
+		</div>
+		{image && (
+			<div class="image">
+				<img src={image} alt={imageAlt} />
+			</div>
+		)}
+		{icon && (
+			<div class="icon">
+				<Icon name='arrow_right' size="small" />
+			</div>
+		)}
+	</a>
 )}
 {type != 'link' && (
-    <div class={`intro-card ${theme} ${width}-width`}>
+    <div class={`intro-card ${theme}`}>
         <div class="text">
             <h2>{headline}</h2>
             <slot />
@@ -53,6 +53,11 @@ import Icon from "../../components/Icon.astro";
 )}
 
 <style lang="scss">
+	.wrapper {
+		width: 100%;
+		container-type: inline-size;
+        container-name: card;
+	}
 	.intro-card {
 		width: 100%;
 		display: flex;
@@ -63,7 +68,6 @@ import Icon from "../../components/Icon.astro";
 		overflow: hidden;
 		position: relative;
 		transition: all .2s ease-in-out;
-
 		&.full-width {
             grid-column: span 2;
         }
@@ -79,7 +83,7 @@ import Icon from "../../components/Icon.astro";
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			gap: .5rem;
+			gap: .25rem;
 			font-weight: 400;
 			padding: var(--spacing-small);
 			h2 {
@@ -101,7 +105,7 @@ import Icon from "../../components/Icon.astro";
 			justify-content: center;
 
             img {
-				flex:1;
+				flex: 1;
                 transition: all .2s ease-in-out;
             }
 		}
@@ -133,6 +137,43 @@ import Icon from "../../components/Icon.astro";
                 transform: scale(1.1);
                 transition: all .4s ease-in-out;
             }
+		}
+	}
+	
+	@media only screen and (max-width: 40rem) {
+		.intro-card {
+			flex-direction: column;
+			&.primary .text, &:not(.solo) .text {
+				flex: 1;
+				height: auto;
+				padding: var(--spacing-small) var(--spacing-small) 0;
+			}
+
+			.image {
+				flex: 1;
+				width: 100%;
+				padding-top: 1rem;
+
+				img {
+					flex: 0;
+					max-height: 300px;
+				}
+			}
+			&.art .image {
+				flex:1;
+				width: 100%;
+				min-height: 260px;
+				max-height: 260px;
+				overflow: hidden;
+				align-items: center;
+				background-color: var(--brandDark);
+
+				img {
+					flex: 1;
+					margin: 0 auto;
+					max-height: none;
+				}
+			}
 		}
 	}
 </style>

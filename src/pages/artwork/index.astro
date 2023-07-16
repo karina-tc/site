@@ -18,10 +18,10 @@ import IntroCard from '../../components/cards/IntroCard.astro';
         <h1 class="billboard">A thesis in <span>human connectivity</span></h1>
         <p class="billboard">As an artist, I've spent a lot of time looking for ways to connect what's disconnected. The works below reflect my passion for bringing concepts into tangible experiences that help people connect with each other, to themselves, and to the world.</p>
         <div class="spacer-small"></div>
-        <CardsGrid columns="two">
+        <CardsGrid>
             <IntroCard
                 width="full"
-				theme='primary'
+				theme='primary art'
 				headline='Hello Stranger'
 				image='/images/artwork/phone.webp'
 				imageAlt='Case studies'
@@ -29,6 +29,8 @@ import IntroCard from '../../components/cards/IntroCard.astro';
 				<p>2014, Interactive installation</p>
                 <p><strong>Details coming soon</strong></p>
 			</IntroCard>
+        </CardsGrid>
+        <CardsGrid columns="two">
             <ArtCard
                 title="Here, There, and Everywhere"
                 details="2015, Interactive installation"
@@ -106,9 +108,11 @@ import IntroCard from '../../components/cards/IntroCard.astro';
                 target=""
                 showComingSoon="yes">
             </ArtCard>
+        </CardsGrid>
+        <CardsGrid>
             <IntroCard
                 width="full"
-				theme='primary'
+				theme='primary art'
 				headline='Grind'
 				image='/images/artwork/grind-2.gif'
 				imageAlt='Grind video performance'
@@ -116,6 +120,7 @@ import IntroCard from '../../components/cards/IntroCard.astro';
 				<p>2012, Video installation and performance</p>
                 <p><strong>Details coming soon</strong></p>
 			</IntroCard>
+        </CardsGrid>
             <!--
             <ArtCard
                 title="Grind"
@@ -127,7 +132,6 @@ import IntroCard from '../../components/cards/IntroCard.astro';
                 showComingSoon="yes">
             </ArtCard>
             -->
-        </CardsGrid>
     </Content>
 </BaseLayout>
 
