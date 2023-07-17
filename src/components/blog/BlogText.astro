@@ -1,0 +1,35 @@
+---
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class:list={`blog-text ${className}`}>
+    <slot></slot>
+</div>
+
+<style lang="scss">
+    .blog-text {
+        width: calc(100% - 12vw);
+        max-width: 58rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: var(--spacing-large);
+
+        &.first {
+            padding-top: 0;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        blockquote {
+            margin: var(--spacing-medium) 0;
+            p {font-size: 2rem; font-weight: 500; letter-spacing: -1px;}
+        }
+    }
+</style>

@@ -1,40 +1,23 @@
 ---
-import IntroCard from "../../components/cards/IntroCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
 import ContentGrid from "../../view/ContentGrid.astro";
+import IntroCard from "../../components/cards/IntroCard.astro";
+import BlogNav from "../../components/blog/BlogNav.astro";
+import BlogHeader from "../../components/blog/BlogHeader.astro";
+import BlogText from "../../components/blog/BlogText.astro";
 
-export interface Props {
-    slug: string;
-    title: string;
-    pubDate: string;
-    tags: string[];
-}
 
-const { slug, title, pubDate, tags } = Astro.props;
-
-//const slug: 'my-first-blog-post';
-//const title: 'My First Blog Post';
-//const pubDate: 'June 20, 2023';
-//const tags: ["astro", "blogging", "learning in public"];
+// Meta Data
+let title = "Metaphorically speaking";
+let pubDate = "June 20, 2023";
+let detail = "Reflections on the broken user experience of finding a rental home.";
 ---
 
-<BaseLayout pageTitle="Thoughts" showBanner="yes">
-    <Content>
-        <div class="blog-nav">
-            <div class="breadcrumbs">
-                <a href="/">Home</a> <span>/</span> <a href="/posts/">Thoughts</a> <span>/</span>
-            </div>
-            <div class="pub-details">
-                <span>June 20, 2023</span>
-            </div>
-        </div>
-        <div class="blog-header">
-            <h1>Metaphorically speaking</h1>
-            <p>Reflections on how to engage team members through storytelling.</p>
-        </div>
-    </Content>
-    <div class="blog-text first">
+<BaseLayout pageTitle={title} showBanner="yes">
+    <BlogNav pubDate={pubDate} />
+    <BlogHeader title={title} detail={detail} />
+    <BlogText className="first">
         <p>A designer's value lies in two critical aspects that are often underestimated.</p>
         <p>First and foremost, designers must have a deep understanding of a business's goals and strategy. Without this understanding, it becomes challenging to grasp the true business needs and the jobs to be done that your users are trying to accomplish.</p>
         <p>Secondly, the ability to sell is often overlooked by designers at various levels of experience. It is crucial to effectively communicate the value of your designs to stakeholders, painting a clear picture of how your pixels solve problems.</p>
@@ -42,11 +25,11 @@ const { slug, title, pubDate, tags } = Astro.props;
         <blockquote>
             <p>I firmly believe that designers are most impactful when they can articulate user needs and desires within high-level strategic discussions. Our mission is to be useful, in whichever way, whatever it takes.</p>
         </blockquote>
-    </div>
+    </BlogText>
     <div class="blog-image">
         <img src="/images/artwork/bruxism.png" alt="text" />
     </div>
-    <div class="blog-text">
+    <BlogText>
         <h2>Some headline</h2>
         <p>True innovation and world-changing design never occurs by remaining within your role and pushing that rectangle across your Figma screen until it just looks right. Designers must actively participate in shaping conversations and pushing boundaries, going beyond the pixels to create magical experiences.</p>
         <p><strong>Let me paint a picture here.</strong></p>
@@ -59,7 +42,7 @@ const { slug, title, pubDate, tags } = Astro.props;
         <h2>Some headline</h2>
         <p>Designers possess the unique skill of distilling complexity into pixels. However, their true power lies in their ability to disseminate ideas through simple stories that engage team members and align them with a project's core objective.</p>
         <p>Metaphorically speaking, a designer's ability to paint a picture is worth more than a thousand pixels.</p>
-    </div>
+    </BlogText>
     <Content>
         <ContentGrid columns="two">
             <IntroCard>hi</IntroCard>
@@ -68,79 +51,3 @@ const { slug, title, pubDate, tags } = Astro.props;
     </Content>
 </BaseLayout>
 
-<style lang="scss">
-    .blog-nav {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: var(--spacing-small) 0;
-
-        .breadcrumbs {
-            min-width: 20rem;
-            margin-bottom: 1rem;
-            color: var(--color-text-secondary);
-            a {
-                color: var(--color-text-secondary);
-                text-decoration: none;
-                padding: 2px;
-                border-bottom: 2px solid var(--brand500);
-                transition: all 0.2s ease-in-out;
-
-                &:hover {
-                    color: var(--white);
-                    background-color: var(--brand500);
-                    border-color: var(--brand500);
-                }
-            }
-            span {
-                opacity: .5;
-                margin: 0 0.5rem;
-            }
-        }
-
-        .pub-details {
-            span {
-                text-transform: uppercase;
-                font-weight: 600;
-                letter-spacing: 1px;
-            }
-        }
-    }
-
-    .blog-header {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: var(--spacing-small) 0;
-        p {
-            opacity: .7;
-            font-weight: 600;
-        }
-    }
-
-    .blog-text {
-        width: calc(100% - 12vw);
-        max-width: 58rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: var(--spacing-large);
-
-        &.first {
-            padding-top: 0;
-        }
-
-        p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        blockquote {
-            margin: var(--spacing-medium) 0;
-            p {font-size: 2rem; font-weight: 500; letter-spacing: -1px;}
-        }
-    }
-</style>

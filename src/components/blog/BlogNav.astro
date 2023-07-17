@@ -1,0 +1,68 @@
+---
+export interface Props {
+    pubDate: string;
+}
+
+const { pubDate } = Astro.props;
+---
+
+<div class="blog-nav">
+    <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/posts/">Thoughts</a>
+        <span>/</span>
+    </div>
+    <div class="pub-details">
+        <span>{pubDate}</span>
+    </div>
+</div>
+
+<style lang="scss">
+    .blog-nav {
+        width: calc(100% - 12vw);
+        max-width: 58rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        overflow: hidden;
+        padding: var(--spacing-small) 0;
+
+        .breadcrumbs {
+            min-width: 20rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+
+            a {
+                color: var(--color-text-secondary);
+                text-decoration: none;
+                padding: 2px;
+                border-bottom: 2px solid var(--brand500);
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    color: var(--white);
+                    background-color: var(--brand500);
+                    border-color: var(--brand500);
+                }
+            }
+
+            span {
+                opacity: .5;
+                margin: 0 0.5rem;
+            }
+        }
+
+        .pub-details span {
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    }
+</style>
