@@ -28,5 +28,12 @@ const { columns = "two" } = Astro.props;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
+
+         &.four-columns {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            @media only screen and (max-width: 30rem) {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
     }
 </style>

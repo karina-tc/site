@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Content from "../../view/Content.astro";
 import CardsGrid from "../../view/ContentGrid.astro";
 import TextCard from "../../components/cards/TextCard.astro";
+import IntroCard from "../../components/cards/IntroCard.astro";
 ---
 
 <BaseLayout
@@ -71,6 +72,26 @@ import TextCard from "../../components/cards/TextCard.astro";
                 copy="Constant learner" 
             />
         </CardsGrid>
+        <div class="spacer"></div>
+        <h3>Further proof of my humanity</h3>
+        <CardsGrid columns="four">
+            <div class="inst-gallery">
+                <span class="caption">Me at Martha's Vineyard trying to be funny</span>
+                <img src="/images/general/karina-slow-sign.jpg"/>
+            </div>
+            <div class="inst-gallery">
+                <span class="caption">Me accidentaly matching the art at Boston's MFA</span>
+                <img src="/images/general/karina-camo-1.jpg"/>
+            </div>
+            <div class="inst-gallery">
+                <span class="caption">Well, somehow the art and I are matching again</span>
+                <img src="/images/general/karina-camo-2.jpg"/>
+            </div>
+            <div class="inst-gallery">
+                <span class="caption">I love my dogs - This is Miss Bean</span>
+                <img src="/images/general/beannie.jpg"/>
+            </div>
+        </CardsGrid>
     </Content>
     <Content space="large">
         <h2>Karina at work</h2>
@@ -104,6 +125,16 @@ import TextCard from "../../components/cards/TextCard.astro";
             <div class="cell">Creativity</div>
             <div class="cell">Calmness</div>
         </div>
+        <div class="spacer"></div>
+        <IntroCard
+            width="full"
+            type="link"
+            theme="cta"
+            headline="See what's like working alongside me"
+            icon="yes"
+            href="/testimonials/">
+            Hear from previous teammates on the Karina experience
+        </IntroCard>
     </Content>
 </BaseLayout>
 
@@ -200,4 +231,45 @@ import TextCard from "../../components/cards/TextCard.astro";
         margin: 2rem 0 3rem;
     }
 
+    .inst-gallery {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: var(--border-radius);
+        position: relative;
+        cursor: pointer;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all .3s ease-in-out;
+        }
+        .caption {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: var(--spacing-xsmall);
+            font-size: 16px;
+            color: var(--brandDark);
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, .75);
+            backdrop-filter: blur(10px);
+            transition: all .3s ease-in-out;
+        }
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+            .caption {
+                opacity: 1;
+                bottom: 0;
+            }
+        }
+    }
 </style>

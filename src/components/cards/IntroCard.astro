@@ -68,10 +68,15 @@ import Icon from "../../components/Icon.astro";
 		overflow: hidden;
 		position: relative;
 		transition: all .2s ease-in-out;
+
+		
+
+		// extends the entire element
 		&.full-width {
             grid-column: span 2;
 		}
 
+		// Used for blog posts
 		&.rows {
 			flex-direction: row;
 			.text {
@@ -105,12 +110,15 @@ import Icon from "../../components/Icon.astro";
 			}
 		}
 
+		// gives it a mint background for focus
 		&.primary {
 			background-color: var(--brand100);
 			.text {
 				padding: var(--spacing-medium) var(--spacing-small);
 			}
 		}
+
+		// has to images
 		.text {
 			flex: 1;
 			display: flex;
@@ -130,13 +138,32 @@ import Icon from "../../components/Icon.astro";
 				text-decoration: underline;
 			}
 		}
+
+		// used as a pseudo cta
+		&.cta, &.cta:hover {
+			padding-left: var(--spacing-medium);
+			padding-right: var(--spacing-medium);
+			color: var(--brand100);
+			background-color: var(--brandDark);
+			h2 {
+				color: var(--white);
+				font-size: 2rem;
+				letter-spacing: -1px;
+				margin: 0;
+			}
+			.icon {
+				opacity: 1;
+				right: var(--spacing-medium);
+			}
+		}
+
+		// CHILD ELEMENTS /////////////////////////////
 		.image {
 			flex: 0 0 50%;
 			color: var(--white);
 			display: flex;
 			align-items: flex-end;
 			justify-content: center;
-
             img {
 				flex: 1;
                 transition: all .2s ease-in-out;
@@ -155,6 +182,7 @@ import Icon from "../../components/Icon.astro";
 			transition: all .2s ease-in-out;
 		}
 
+		// UI STATES /////////////////////////////
 		&:hover {
 			background-color: var(--brand300);
 
@@ -173,6 +201,7 @@ import Icon from "../../components/Icon.astro";
 		}
 	}
 	
+	// RESPONSIVE /////////////////////////////
 	@media only screen and (max-width: 40rem) {
 		.intro-card {
 			flex-direction: column;
@@ -229,6 +258,23 @@ import Icon from "../../components/Icon.astro";
 					flex: 1;
 					margin: 0 auto;
 					max-height: none;
+				}
+			}
+
+			&.cta, &.cta:hover {
+				padding: var(--spacing-small);
+				.text {
+					text-align: center;
+					gap: 1rem;
+					padding: 0;
+
+					h2 {
+						font-size: 1.5rem;
+        				letter-spacing: -.5px;
+					}
+				}
+				.icon {
+					display: none;
 				}
 			}
 		}
