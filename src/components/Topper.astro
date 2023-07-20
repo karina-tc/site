@@ -1,0 +1,38 @@
+---
+export interface Props {
+ 	split?: string;
+}
+const { split } = Astro.props;
+---
+
+<div class="topper">
+    <div class="wrapper">
+        <div class="column left">
+            <slot />
+        </div>
+        {split === 'true' && (
+            <div class="column">
+                something
+            </div>
+        )}
+    </div>
+</div>
+
+<style lang="scss">
+    .topper {
+        width: 100%;
+        padding: var(--spacing-medium) var(--spacing-medium);
+        background-color: var(--sunrise);
+        .wrapper {
+            width: 100%;
+            margin: auto;
+            max-width: 70rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            .column.left {
+                min-width: 45vw;
+            }
+        }
+    }
+</style>

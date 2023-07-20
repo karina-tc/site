@@ -4,30 +4,52 @@ import Menu from './menu/Menu.astro';
 ---
 
 <div class="header">
-    <a class="mark" href="/"></a>
-    <Menu href="#open-sesame" />
+    <div class="wrapper">
+        <div class="left">
+            <a class="mark" href="/"></a>
+            <Menu />
+        </div>
+        <div class="right">
+            Morning
+        </div>
+    </div>
 </div>
 
 <style lang="scss">
     .header {
         width: 100%;
-        margin: auto;
-        max-width: 60rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        padding: var(--spacing-small) 0 var(--spacing-xsmall);
+        //sbackground-color: rgba(228, 231, 255, 1);
+        background-color: var(--sunrise);
         top: 0rem;
         z-index: 1;
+        position: sticky;
+        backdrop-filter: blur(10px);
+        padding-top: 1rem;
+        
+        .wrapper {
+            width: 100%;
+            margin: auto;
+            max-width: 70rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-xsmall) 0 var(--spacing-xsmall);
+        }
+
+        .left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
         .mark {
             content: '';
-            width: 60px;
-            height: 60px;
-            min-width: 60px;
-            min-height: 60px;
-            background-image: url('/public/images/mark2.svg');
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            background-image: url('/public/images/mark.svg');
             background-repeat: no-repeat;
             background-size: cover;
         }

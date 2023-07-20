@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import MenuModal from "../components/menu/MenuModal.astro";
 import MarqueeBanner from "../components/banners/MarqueeBanner.astro";
+import Topper from "../components/Topper.astro";
 
 export interface Props {
  	pageTitle: string;
@@ -13,8 +14,9 @@ export interface Props {
     footerTarget?: string;
     footerMemoji?: string;
     showBanner?: string;
+    topperSplit?: string;
 }
-const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBanner } = Astro.props;
+const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBanner, topperSplit } = Astro.props;
 ---
 
 <html lang="en">
@@ -29,31 +31,13 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Tilt+Warp&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
-
-        <script>
-        (function(d) {
-            var config = {
-            kitId: 'mib4tpc',
-            scriptTimeout: 3000,
-            async: true
-            },
-            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
-        </script>
-
     </head>
     <body class:list={`base ${background}`}>
         {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/' target='_blank' />)}
         <Header pageTitle={pageTitle} />
+        <Topper split={topperSplit}>
+            <slot name="topper"></slot>
+        </Topper>
         <Main>
             <slot></slot>
         </Main>
@@ -64,7 +48,7 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
 
 <style lang="scss">
     .base {
-        padding: var(--spacing-small) 0 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
         height: 100%;

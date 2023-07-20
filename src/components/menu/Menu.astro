@@ -1,34 +1,29 @@
 ---
-import Icon from "../Icon.astro";
-
+import MenuLink from './MenuLink.astro';
 export interface Props {
-   href: string;
+  
 }
 
 const { 
-   href 
+   
 } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+const components = pathname.split('/')
+const root = "/" + components[1]
 
 ---
 <section id="menu" class="menu">
-    <a href={href} class="trigger">
-        <Icon name="menu" size="small"  />
-    </a>
+    <MenuLink href="/" label="Home" />
+    <MenuLink href="/about" label="About" />
+    <MenuLink href="/work" label="Work" />
+    <MenuLink href="/writing" label="Writing" />
+    <MenuLink href="/resume" label="CV" />
 </section>
 
 <style lang="scss">
-    .trigger {
-        color: var(--brand300);
+    .menu {
         display: flex;
-        border-radius: 1.25rem;
-        padding: .75rem;
-        border: 2px solid var(--white);
-        background-color: var(--brandDark);
-        transition: all .3s ease-in-out;
-
-        &:hover {
-            color: var(--brandDark);
-            background-color: var(--brand300);
-        }
+        gap: 2rem;
     }
 </style>

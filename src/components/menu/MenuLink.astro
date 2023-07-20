@@ -1,52 +1,48 @@
 ---
-import Icon from "../Icon.astro";
-
 export interface Props {
     href: string;
-    icon: string;
     label: string;
 }
 
-const { href, icon, label } = Astro.props;
+const { href, label } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname;
 const components = pathname.split('/')
 const root = "/" + components[1]
 
 ---
 
-<a class:list={`menu-link ${root === href ? 'active' : ''}`} href={href}>
-    <Icon name={icon} size="small" />
-    <span>{label}</span>
-</a>
+<a class:list={`link ${root === href ? 'active' : ''}`} href={href}>{label}</a>
 
 <style lang="scss">
-    .menu-link {
-        width: 100;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.25rem;
+    .link {
         text-decoration: none;
-        border-radius: .75rem;
-        border: 2px solid var(--brandLight);
-        color: var(--brandLight);
-        transition: all .3s ease-in-out;
+        border-bottom: 2px solid transparent;
+        transition: color 0.3s ease-in-out;
+        position: relative;
+        padding-bottom: 4px;
 
-        &:hover {
-            color: var(--brandDark);
-            border-color: var(--brand300);
-            background-color: var(--brand300);
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--light-ink);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
         }
 
-        &:focus {
-            color: var(--brandLight);
-            background-color: var(--brandDark);
-            border-color: var(--brandDark);
+        &:hover::after {
+            transform: scaleX(1);
         }
 
         &.active {
-            color: var(--brandDark);
-            background-color: var(--brandLight);
+            font-weight: 600;
+            &::after {
+                transform: scaleX(1);
+            }
         }
     }
 </style>

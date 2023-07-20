@@ -1,3 +1,40 @@
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-thin-webfont.woff2") format("woff2");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-light-webfont.woff2") format("woff2");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-regular-webfont.woff2") format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-medium-webfont.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-semibold-webfont.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-bold-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+
 :root {
     /* TYPOGRAPHY */
     --em-size: 18px;
@@ -5,12 +42,39 @@
     --spacing-small: 2rem;
     --spacing-medium: 4rem;
     --spacing-large: 6rem;
-    --font-headlines: 'Poppins', system-ui, serif;
-    --font-copy: 'Poppins',  system-ui, sans-serif;
+    --font-headlines: 'Archia', system-ui, sans-serif;
+    --font-copy: 'Archia',  system-ui, sans-serif;
     --border-radius: 1rem;
 
     /* EXTRA */
     --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
+
+    /* NEW BRAND */
+
+    --light-ink: #4A3950;
+    --light-base: #FFFFFF;
+
+    --dark-ink: #F0E6EF;
+    --dark-base: #4A3950;
+
+    --sunrise: #E4E7FF;
+    --sunrise-accent: #FAFAFF;
+
+    --sunset: #FADCC0;
+    --sunset-accent: #FFFBF9;
+    
+    --ghost10: rgba(255, 255, 255, 0.10);
+    --ghost25: rgba(255, 255, 255, 0.25);
+    --ghost50: rgba(255, 255, 255, 0.50);
+
+    --highlights-wine: #3F2B46;
+    --highlights-mint: #EBF3EC;
+    --highlights-sky: #DBEDFB;
+    --highlights-cardboard: #E7D5C4;
+    --highlights-cream: #EEEDE4;
+    --highlights-silver: #F6F6F6;
+
+
 
     /* BRAND */
     --brandDark: #07091f;
@@ -27,7 +91,7 @@
 
 
 html {
-    background-color: var(--brandLight);
+    background-color: var(--light-base);
     font-family: sans-serif;
 }
 
@@ -35,7 +99,7 @@ body {
     line-height: 180%;
     -webkit-font-smoothing: antialiased;
     font-size: var(--em-size);
-    color: var(--brand900);
+    color: var(--light-ink);
     letter-spacing: -.25px;
     display: flex;
     flex-direction: row;
@@ -85,7 +149,7 @@ body {
   h4,
   h5,
   h6 {
-        color: var(--brandDark);
+        color: inherit;
         overflow-wrap: break-word;
   }
 
@@ -97,18 +161,11 @@ body {
   }
 
   h1.billboard {
-      font-size: 7rem;
-      letter-spacing: -8px;
+      font-size: 8rem;
+      letter-spacing: -4px;
   }
 
-    h1.billboard-xl {
-        color: var(--brandDark);
-        font-size: 8rem;
-        line-height: 90%;
-    }
-
   h1.billboard span {
-      color: var(--brand500);
       font-weight: 400;
   }
 
