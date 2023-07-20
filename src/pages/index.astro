@@ -9,8 +9,11 @@ import IntroCard from '../components/cards/IntroCard.astro';
 <BaseLayout pageTitle='Home' background='background' footerMemoji='thumbsup' footerMessage='about' footerTarget='/' showBanner='yes'>
 	<div class="spacer"></div>
 	<Content>
-		<h1 class="billboard">Welcome, friend. <span>Happy you’re here!</span></h1>
-		<h2 class="ps">Make yourself at home</h2>
+		<h1 class="billboard-xl">Howdy</h1>
+		<h2 class="ps">I'm Karina. A designer, artist, and code tinkerer.</h2>
+		<p>I'm currently building Campsite, a tool that helps teams share and collaborate on work-in-progress.</p>
+		<p>Before Campsite, I spent four years designing native mobile apps at GitHub.</p>
+		<p>Before GitHub, I co-founded Spectrum, a platform for large-scale communities to have better public conversations. Spectrum was acquired by GitHub in November, 2018.</p>
 	</Content>
 	<Content>
 		<CardsGrid columns='two'>
@@ -64,12 +67,7 @@ import IntroCard from '../components/cards/IntroCard.astro';
 </BaseLayout>
 
 <style lang="scss">
-	h1 {
-		text-align: center;
-	}
-
 	h2.ps {
-		text-align: center;
 		font-family: var(--font--copy);
 		font-weight: 400;
 		line-height: 180%;

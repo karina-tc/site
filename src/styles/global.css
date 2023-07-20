@@ -5,34 +5,24 @@
     --spacing-small: 2rem;
     --spacing-medium: 4rem;
     --spacing-large: 6rem;
-    --font-headlines: 'IBM Plex Serif', system-ui, serif;
-    --font-copy: 'Work Sans',  system-ui, sans-serif;
-    --border-radius: 1.5rem;
+    --font-headlines: 'Poppins', system-ui, serif;
+    --font-copy: 'Poppins',  system-ui, sans-serif;
+    --border-radius: 1rem;
 
     /* EXTRA */
     --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
 
-    /* COLORS */
-    --black: #000;
-    --greenInk: #56695A;
-    --greenPaper: #F6FFF9;
-    --green100: #E9F7EC;
-    --green200: #EDFBF0;
-    --green300: #A2D3AC;
-    --green500: #7BB587;
-    --greenHighlight: #A0F9B2;
-
     /* BRAND */
-    --brandDark: #032325;
-    --brand900: #0E3617;
-    --brand700: #41694A;
-    --brand500: #74AE80;
-    --brand300: #A0FFB4;
-    --brand100: #C9F9D3;
-    --brand50: #ECFAEF;
-    --brandLight: #F6FFF8;
+    --brandDark: #07091f;
+    --brand900: #1b1e41;
+    --brand700: #3c4177;
+    --brand500: #7479b5;
+    --brand300: #9da4de;
+    --brand100: #b7befc;
+    --brand50: #e2e5ff;
+    --brandLight: #f8f9ff;
     --white: #fff;
-    --dim-layer: rgba(9, 55, 58, 0.95);
+    --dim-layer: rgba(27, 30, 65, 0.8);
 }
 
 
@@ -108,8 +98,14 @@ body {
 
   h1.billboard {
       font-size: 7rem;
-      text-align: center;
+      letter-spacing: -8px;
   }
+
+    h1.billboard-xl {
+        color: var(--brandDark);
+        font-size: 8rem;
+        line-height: 90%;
+    }
 
   h1.billboard span {
       color: var(--brand500);
