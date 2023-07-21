@@ -25,6 +25,8 @@ const {
 
 <style lang="scss">
     .menu {
+        min-width: 335px;
+        height: 32px;
         display: flex;
         transition: all 0.5s ease-in-out;
         .links {
@@ -39,6 +41,7 @@ const {
     }
     @media screen and (max-width: 50rem) {
         .menu {
+            min-width: 100px;
             .links {
                 display: none;
             }
