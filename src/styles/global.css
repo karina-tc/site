@@ -67,6 +67,7 @@
     --ghost10: rgba(255, 255, 255, 0.10);
     --ghost25: rgba(255, 255, 255, 0.25);
     --ghost50: rgba(255, 255, 255, 0.50);
+    --ghost75: rgba(255, 255, 255, 0.75);
     --white: #fff;
 
     --highlights-wine: #3F2B46;

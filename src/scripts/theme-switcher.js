@@ -21,7 +21,7 @@ const themes = {
   },
   'evening': {
     '--main-color': 'var(--highlights-wine)',
-    '--accent-color': 'var(--ghost25)',
+    '--accent-color': 'var(--ghost10)',
     '--theme-background': 'var(--dark-base)',
     '--theme-ink': 'var(--dark-ink)',
     '--theme-mark': "url('https://karinatovar.s3.us-east-2.amazonaws.com/mark-white.svg')",

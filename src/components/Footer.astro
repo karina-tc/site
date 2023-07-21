@@ -1,5 +1,7 @@
 ---
 import GlowButton from './GlowButton.astro';
+import Colophon from './Colophon.astro';
+
 export interface Props {
     message?: string;
     messageTarget?: string;
@@ -33,10 +35,11 @@ const { message, messageTarget, memoji } = Astro.props;
             <p>© <span id="currentYear"></span> Karina Tovar</p>
         </div>
         <div class="right">
-            <a  target="_blank">Colophon</a>
+            <a href="#colophon">Colophon</a>
             <GlowButton text='Say hello' href='mailto:hello@karinatovar.com' target='_blank' />
         </div>
     </div>
+    <Colophon />
 </footer>
 
 <style lang="scss">
@@ -59,8 +62,10 @@ const { message, messageTarget, memoji } = Astro.props;
         .right {
             display: flex;
             flex-direction: row;
-            gap: 1rem;
+            gap: 2rem;
             align-items: baseline;
+
+            a {text-decoration: none;}
         }
     }
     .action {
