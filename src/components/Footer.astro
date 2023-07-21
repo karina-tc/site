@@ -1,4 +1,5 @@
 ---
+import GlowButton from './GlowButton.astro';
 export interface Props {
     message?: string;
     messageTarget?: string;
@@ -32,8 +33,8 @@ const { message, messageTarget, memoji } = Astro.props;
             <p>© <span id="currentYear"></span> Karina Tovar</p>
         </div>
         <div class="right">
-            <span>This site was built <strong>for you</strong> ❤️</span>
-            <a href="mailto:hello@karinatovar.com" target="_blank">Say hello</a>
+            <a  target="_blank">Colophon</a>
+            <GlowButton text='Say hello' href='mailto:hello@karinatovar.com' target='_blank' />
         </div>
     </div>
 </footer>

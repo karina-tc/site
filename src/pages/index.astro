@@ -6,65 +6,28 @@ import IntroCard from '../components/cards/IntroCard.astro';
 
 ---
 
-<BaseLayout pageTitle='Home' background='background' footerMemoji='thumbsup' footerMessage='about' footerTarget='/' showBanner='yes'>
+<BaseLayout pageTitle='Home' background='background'>
 	<div slot="topper">
 		<p class="billboard">Hello, new friend</p>
-        <h1 class="billboard">I am a product designer, artist and code tinkerer.</h1>
-        <p class="billboard">I am located in New England and currently work at a startup called Tropic.</p>
+		<br />
+        <h1 class="billboard">I am a product <span class="des-cur">designer</span>, <span>artist</span> and code <span>tinkerer</span>.</h1>
+		<br />
+		<p class="billboard">Based in New England (USA). Currently working at Glue.co</p>
 	</div>
-	<div class="spacer"></div>
-	<Content>
-		<CardsGrid columns='two'>
-			<IntroCard
-				type='link'
-				theme='primary'
-				headline='Work'
-				image='/images/work-thumb.png'
-				imageAlt='Case studies'
-				href='/work/'>
-				Case studies
-			</IntroCard>
-			<IntroCard
-				type='link'
-				theme='primary'
-				headline='Dabbles'
-				image='/images/dabbles-thumb.png'
-				imageAlt='Dabbles'
-				href='/dabbles/'>
-				Side projects
-			</IntroCard>
-			<IntroCard
-				type='link'
-				theme='solo'
-				headline='Thoughts'
-				href='/posts/'
-				icon='yes'>
-				My thought bubble
-			</IntroCard>
-			<IntroCard
-				type='link'
-				theme='solo'
-				headline='Artwork'
-				href='/artwork/'
-				icon='yes'>
-				Art archive
-			</IntroCard>
-			<IntroCard
-				theme='solo'
-				headline='Located'>
-				Somewhere around New England, USA
-			</IntroCard>
-			<IntroCard
-				theme='solo'
-				headline='Social'>
-				<span><a href="https://www.linkedin.com/in/karina-tovar-castro/" target="_blank">LinkedIn</a>&nbsp;·&nbsp;<a href="https://github.com/karina-tc" target="_blank">Github</a></span>
-			</IntroCard>
-			</div>
-		</CardsGrid>
-	</Content>
 </BaseLayout>
 
 <style lang="scss">
+
+	h1 span {
+		transition: all .2s ease-in-out;
+		text-decoration: underline;
+		text-decoration-style: wavy;
+		text-decoration-thickness: from-font;
+		text-decoration-color: #e1a66fab;
+		&.des-cur {
+			text-decoration-color: #B03ACD;
+		}
+	}
 	h2.ps {
 		font-family: var(--font--copy);
 		font-weight: 400;
@@ -136,4 +99,12 @@ import IntroCard from '../components/cards/IntroCard.astro';
 			}
 		}
 	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
 </style>
+

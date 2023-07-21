@@ -1,0 +1,81 @@
+---
+export interface Props {
+ 	text?: string;
+  href?: string;
+  target?: string;
+}
+const { text, href, target } = Astro.props;
+---
+
+<a class="glow-cta" href={href} target={target}>
+    {text}
+</a>
+
+<style lang="scss">
+    .glow-cta {
+        color: var(--light-ink);
+        text-decoration: none;
+        background: var(--light-base);
+        padding: 16px 24px;
+        position: relative;
+        border-radius: 8px;
+        margin-top: 2rem;
+        width: fit-content;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.01);
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 6px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        transform: scale(0.8) translateZ(0);
+        filter: blur(8px);
+        transition: all 0.5s ease-in-out;
+        background: linear-gradient(
+            to left,
+            #ff5770,
+            #e4428d,
+            #c42da8,
+            #9e16c3,
+            #6501de,
+            #9e16c3,
+            #c42da8,
+            #e4428d,
+            #ff5770
+            );
+            background-size: 200% 200%;
+            //animation: animateGlow 1.25s linear infinite;
+    }
+
+    &:hover::after {
+      transform: scale(0.9) translateZ(0);
+      background: linear-gradient(
+            to left,
+            #ff5770,
+            #e4428d,
+            #c42da8,
+            #9e16c3,
+            #6501de,
+            #9e16c3,
+            #c42da8,
+            #e4428d,
+            #ff5770
+            );
+            background-size: 200% 200%;
+            animation: animateGlow 1.25s linear infinite;
+    }
+  }
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+</style>
