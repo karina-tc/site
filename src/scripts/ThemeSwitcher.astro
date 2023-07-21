@@ -47,12 +47,29 @@
     });
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
+  const d = new Date();
+  const hour = d.getHours();
+  console.log("Current hour:", hour);
+  let theme: 'morning' | 'afternoon' | 'evening';
+
+  if (hour >= 5 && hour < 12) {
+    theme = 'morning';
+  } else if (hour >= 12 && hour < 18) {
+    theme = 'afternoon';
+  } else {
+    theme = 'evening';
+  }
+
+  console.log("Setting theme to:", theme);
+  setThemeColor(theme);
+
+  setInterval(() => {
     const d = new Date();
     const hour = d.getHours();
     let theme: 'morning' | 'afternoon' | 'evening';
 
-    if (hour >= 6 && hour < 12) {
+    if (hour >= 5 && hour < 12) {
       theme = 'morning';
     } else if (hour >= 12 && hour < 18) {
       theme = 'afternoon';
@@ -61,23 +78,9 @@
     }
 
     setThemeColor(theme);
-  
-    setInterval(() => {
-      const d = new Date();
-      const hour = d.getHours();
-      let theme: 'morning' | 'afternoon' | 'evening';
+  }, 60 * 60 * 1000);
+});
 
-      if (hour >= 6 && hour < 12) {
-        theme = 'morning';
-      } else if (hour >= 12 && hour < 18) {
-        theme = 'afternoon';
-      } else {
-        theme = 'evening';
-      }
-
-      setThemeColor(theme);
-    }, 60 * 60 * 1000);
-  });
 
   window.addEventListener('keydown', (event) => {
     if (event.key === '1') {
