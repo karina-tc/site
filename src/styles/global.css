@@ -1,3 +1,40 @@
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-thin-webfont.woff2") format("woff2");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-light-webfont.woff2") format("woff2");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-regular-webfont.woff2") format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-medium-webfont.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-semibold-webfont.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Archia";
+    src: url("/fonts/archia-bold-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+
 :root {
     /* TYPOGRAPHY */
     --em-size: 18px;
@@ -5,39 +42,56 @@
     --spacing-small: 2rem;
     --spacing-medium: 4rem;
     --spacing-large: 6rem;
-    --font-headlines: 'IBM Plex Serif', system-ui, serif;
-    --font-copy: 'Work Sans',  system-ui, sans-serif;
-    --border-radius: 1.5rem;
+    --font-headlines: 'Archia', system-ui, sans-serif;
+    --font-copy: 'Archia',  system-ui, sans-serif;
+    --border-radius: 1rem;
 
     /* EXTRA */
     --timing-curve-bounce: cubic-bezier(0, 1.5, 0.5, 1);
 
-    /* COLORS */
-    --black: #000;
-    --greenInk: #56695A;
-    --greenPaper: #F6FFF9;
-    --green100: #E9F7EC;
-    --green200: #EDFBF0;
-    --green300: #A2D3AC;
-    --green500: #7BB587;
-    --greenHighlight: #A0F9B2;
+    /* NEW BRAND */
+
+    --light-ink: #4A3950;
+    --light-base: #FFFFFF;
+
+    --dark-ink: #F0E6EF;
+    --dark-base: #4A3950;
+
+    --sunrise: #E4E7FF;
+    --sunrise-accent: #FAFAFF;
+
+    --sunset: #FADCC0;
+    --sunset-accent: #FFFBF9;
+    
+    --ghost10: rgba(255, 255, 255, 0.10);
+    --ghost25: rgba(255, 255, 255, 0.25);
+    --ghost50: rgba(255, 255, 255, 0.50);
+    --white: #fff;
+
+    --highlights-wine: #3F2B46;
+    --highlights-mint: #EBF3EC;
+    --highlights-sky: #DBEDFB;
+    --highlights-cardboard: #E7D5C4;
+    --highlights-cream: #EEEDE4;
+    --highlights-silver: #F6F6F6;
+
+
 
     /* BRAND */
-    --brandDark: #032325;
-    --brand900: #0E3617;
-    --brand700: #41694A;
-    --brand500: #74AE80;
-    --brand300: #A0FFB4;
-    --brand100: #C9F9D3;
-    --brand50: #ECFAEF;
-    --brandLight: #F6FFF8;
-    --white: #fff;
-    --dim-layer: rgba(9, 55, 58, 0.95);
+    --brandDark: #07091f;
+    --brand900: #1b1e41;
+    --brand700: #3c4177;
+    --brand500: #7479b5;
+    --brand300: #9da4de;
+    --brand100: #b7befc;
+    --brand50: #e2e5ff;
+    --brandLight: #f8f9ff;
+    --dim-layer: rgba(27, 30, 65, 0.8);
 }
 
 
 html {
-    background-color: var(--brandLight);
+    background-color: var(--light-base);
     font-family: sans-serif;
 }
 
@@ -45,7 +99,7 @@ body {
     line-height: 180%;
     -webkit-font-smoothing: antialiased;
     font-size: var(--em-size);
-    color: var(--brand900);
+    color: var(--light-ink);
     letter-spacing: -.25px;
     display: flex;
     flex-direction: row;
@@ -95,25 +149,21 @@ body {
   h4,
   h5,
   h6 {
-        color: var(--brandDark);
+        color: inherit;
         overflow-wrap: break-word;
   }
 
   h1 {
       font: 6rem/100% var(--font-headlines);
       margin: 0;
-      font-weight: 600;
-      letter-spacing: -4px;
+      font-weight: 400;
+      letter-spacing: -6px;
   }
 
   h1.billboard {
       font-size: 7rem;
-      text-align: center;
-  }
-
-  h1.billboard span {
-      color: var(--brand500);
-      font-weight: 400;
+      font-weight: 500 ;
+      letter-spacing: -4px;
   }
 
   h2 {
@@ -142,11 +192,9 @@ body {
   }
 
    p.billboard {
-       margin-top: var(--spacing-medium);
        font-size: 1.5rem;
-       line-height: 160%;
-       text-align: center;
-       letter-spacing: -1px;
+       line-height: 140%;
+       letter-spacing: -.5px;
    }
 
   a {
@@ -185,9 +233,10 @@ body {
     }
 }
 
-@media only screen and (max-width: 40rem) {
-    h1, h1.billboard {
-        font-size: 3.5rem;
+@media only screen and (max-width: 50rem) {
+    h1,
+    h1.billboard {
+        font-size: 4.5rem;
     }
     h2 {
         font-size: 1.5rem;
@@ -201,5 +250,13 @@ body {
     }
     p.billboard {
         font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+
+    h1,
+    h1.billboard {
+        font-size: 3.5rem;
     }
 }

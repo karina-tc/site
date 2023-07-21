@@ -35,8 +35,11 @@ const { text, link, target } = Astro.props;
         flex-wrap: nowrap;
         overflow: hidden;
         position: relative;
-        background-color: var(--brand100);
+        background-color: var(--sunrise);
         margin-top: -2rem;
+        position: fixed;
+        bottom: 0px;
+        z-index: 1;
 
         &-container {
             position: absolute;
@@ -63,7 +66,6 @@ const { text, link, target } = Astro.props;
             }
 
             &:hover {
-                background-color: var(--brand300);
                 span {opacity: 1;}
             }
         }

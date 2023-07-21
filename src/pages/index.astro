@@ -7,11 +7,12 @@ import IntroCard from '../components/cards/IntroCard.astro';
 ---
 
 <BaseLayout pageTitle='Home' background='background' footerMemoji='thumbsup' footerMessage='about' footerTarget='/' showBanner='yes'>
+	<div slot="topper">
+		<p class="billboard">Hello, new friend</p>
+        <h1 class="billboard">I am a product designer, artist and code tinkerer.</h1>
+        <p class="billboard">I am located in New England and currently work at a startup called Tropic.</p>
+	</div>
 	<div class="spacer"></div>
-	<Content>
-		<h1 class="billboard">Welcome, friend. <span>Happy you’re here!</span></h1>
-		<h2 class="ps">Make yourself at home</h2>
-	</Content>
 	<Content>
 		<CardsGrid columns='two'>
 			<IntroCard
@@ -64,12 +65,7 @@ import IntroCard from '../components/cards/IntroCard.astro';
 </BaseLayout>
 
 <style lang="scss">
-	h1 {
-		text-align: center;
-	}
-
 	h2.ps {
-		text-align: center;
 		font-family: var(--font--copy);
 		font-weight: 400;
 		line-height: 180%;
