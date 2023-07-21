@@ -8,6 +8,7 @@ import MarqueeBanner from "../components/banners/MarqueeBanner.astro";
 import Topper from "../components/Topper.astro";
 import MenuInvert from "../scripts/MenuInvert.astro";
 import TimeOfDayGreeting from "../scripts/TimeOfDayGreeting.astro";
+import ThemeSwitcher from "../scripts/ThemeSwitcher.astro";
 
 export interface Props {
  	pageTitle: string;
@@ -33,12 +34,14 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <ThemeSwitcher />
     </head>
     <body class:list={`base ${background}`}>
         {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/' target='_blank' />)}
         <Header pageTitle={pageTitle} />
         <Topper split={topperSplit}>
-            <slot name="topper"></slot>
+            <slot slot="content" name="topper"></slot>
+            <slot slot="assistant" name="topper-assist"></slot>
         </Topper>
         <Main>
             <slot></slot>

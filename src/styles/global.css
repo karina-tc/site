@@ -56,6 +56,7 @@
 
     --dark-ink: #F0E6EF;
     --dark-base: #4A3950;
+    --evening: var(--highlights-wine);
 
     --sunrise: #E4E7FF;
     --sunrise-accent: #FAFAFF;
@@ -89,10 +90,31 @@
     --dim-layer: rgba(27, 30, 65, 0.8);
 }
 
+@property --theme-color {
+    syntax: '<color>';
+    initial-value: var(--light-base);
+    inherits: false;
+}
+
+@property --theme-ink {
+    syntax: '<color>';
+    initial-value: var(--light-ink);
+    inherits: false;
+}
+
+@property --theme-accent {
+    syntax: '<color>';
+    initial-value: white;
+    inherits: false;
+}
 
 html {
     background-color: var(--light-base);
     font-family: sans-serif;
+
+    --theme-color: var(--theme-color)=='morning' ? var(--light-base): var(--theme-color)=='afternoon' ? var(--light-base): var(--dark-base);
+    background-color: var(--theme-color);
+    transition: background-color 0.5s ease;
 }
 
 body {
@@ -111,7 +133,31 @@ body {
     font-weight: 500;
     margin: 0 auto;
     position: relative;
+    will-change: transform;
+
+    background-color: var(--theme-background);
+    color: var(--theme-ink);
+    transition: all 0s ease;
+    animation: smooth 0.5s ease;
 }
+
+/*
+body.morning {
+    background-color: lightyellow;
+    color: black;
+}
+
+body.afternoon {
+    background-color: lightblue;
+    color: darkblue;
+}
+
+body.evening {
+    background-color: darkblue;
+    color: white;
+}
+*/
+
 
 * {
     box-sizing: border-box;
@@ -260,3 +306,44 @@ body {
         font-size: 3.5rem;
     }
 }
+
+ @keyframes smooth {
+     0% {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+
+
+ .info-grid {
+     display: grid;
+     grid-gap: var(--spacing-small);
+     grid-template-columns: 1fr 1fr;
+     margin-top: var(--spacing-small);
+
+     .info-cell {
+         display: flex;
+         flex-direction: column;
+         gap: .5rem;
+
+         .label {
+             font-size: 14px;
+             margin: 0;
+         }
+
+         .detail {
+             margin: 0;
+         }
+
+         .footer {
+             font-size: 12px;
+             margin: 0;
+         }
+     }
+ }

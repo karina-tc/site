@@ -12,10 +12,12 @@ import IntroCard from "../../components/cards/IntroCard.astro";
     footerTarget="/"
     showBanner="yes"
 >
+    <div slot="topper">
+        <h1 class="billboard">Thought bubble</h1>
+        <p class="billboard">Lessons and thoughts</p>
+	</div>
     <div class="spacer"></div>
     <Content>
-        <h1 class="billboard">Thought <span>bubble</span></h1>
-        <div class="spacer"></div>
         <CardsGrid columns="">
             <IntroCard
                 type="link"

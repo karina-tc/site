@@ -28,27 +28,36 @@ import Menu from './menu/Menu.astro';
 <style lang="scss">
     .header {
         width: 100%;
+        min-height: 56px;
         top: 0rem;
         z-index: 1;
-        padding-top: 1rem;
-        background-color: var(--sunrise);
+        position: absolute;
+        padding: var(--spacing-medium) 0 var(--spacing-small) ;
 
         &.onthemove {
-            padding-top: 0;
+            padding: var(--spacing-xsmall) 0;
             position: sticky;
-            background-color: rgba(255, 255, 255, 0.75);
+            background-color: var(--theme-nav-move);
             backdrop-filter: blur(10px);
+            height: auto;
+            transition: transition 0.5s ease-in-out;
+            will-change: transform;
+            animation: smooth 0.5s ease-in-out;
         }
-        
         
         .wrapper {
             width: 100%;
+            height: 40px;
             margin: auto;
             max-width: 70rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: var(--spacing-xsmall) 0 var(--spacing-xsmall);
+
+            transition: all 0.5s ease-in-out;
+            will-change: transform;
+            animation: smooth 0.5s ease-in-out;
         }
 
         .left {
@@ -60,8 +69,16 @@ import Menu from './menu/Menu.astro';
 
         .right {
             display: flex;
+            justify-content: flex-end;
             gap: 1rem;
             align-items: center;
+            height: 40px;
+            position: relative;
+
+            span {
+                width: 24px;
+                height: 24px;
+            }
 
             &.sunrise span.sunset, &.sunrise .evening {display: none;}
             &.sunset span.sunrise, &.sunset .evening {display: none;}
@@ -74,13 +91,13 @@ import Menu from './menu/Menu.astro';
             height: 40px;
             min-width: 40px;
             min-height: 40px;
-            background-image: url('/public/images/mark.svg');
+            background-image: var(--theme-mark);
             background-repeat: no-repeat;
             background-size: cover;
         }
 
         &.invert {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: var(--theme-nav-invert);
             .mark {
                 background-image: url('/public/images/mark-white.svg');
             }
@@ -96,4 +113,5 @@ import Menu from './menu/Menu.astro';
             width: 88%;
         }
     }
+    
 </style>

@@ -6,23 +6,33 @@ import Icon from "../../components/Icon.astro";
 ---
 
 
-<BaseLayout pageTitle="Resume" footerMessage="together" footerTarget="/" showBanner="yes" footerMemoji="thumbsup">
-    <div class="spacer"></div>
-    <Content>
-        <div class="header">
-            <div>
-                <h1 class="billboard">CV</h1>
+<BaseLayout pageTitle="Resume" footerMessage="together" footerTarget="/" showBanner="yes" topperSplit="true"> 
+    <div slot="topper">
+        <h1 class="billboard">Resume</h1>
+        <div class="info-grid">
+            <div class="info-cell">
+                <span class="label">Current role</span>
+                <p class="detail">Senior Product Designer</p>
+                <span class="footer">Whoknows</span>
             </div>
-            <div>
-                <h2>Karina Tovar</h2>
-                <h2>Senior Product Designer</h2>
+            <div class="info-cell">
+                <span class="label">Years of experience</span>
+                <p class="detail">10+ years</p>
+                <span class="footer">Since 2013</span>
             </div>
-            <a class="download-link" href="https://karinatovar.s3.us-east-2.amazonaws.com/KarinaTovar_Resume2023.pdf" target="_blank">
-                <em><Icon name="clip" size="small" /></em>
-                <span>Download <strong>PDF</strong></span>
-            </a>
+            <div class="info-cell">
+                <span class="label">Industries</span>
+                <p class="detail">Martech, Adtech, HR</p>
+                <span class="footer">And more</span>
+            </div>
+            <div class="info-cell">
+                <span class="label">Focus</span>
+                <p class="detail">User-centered design</p>
+                <span class="footer">Strategy, leadership, and more</span>
+            </div>
         </div>
-    </Content>
+	</div>
+    <div class="spacer"></div>
     <Content>
         <h2>Experience</h2>
         <ExperienceRow

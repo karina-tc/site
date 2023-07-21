@@ -39,6 +39,9 @@ import IntroCard from "../../components/cards/IntroCard.astro";
             </div>
         </div>
 	</div>
+    <div slot="topper-assist">
+        hiii
+    </div>
     <div class="spacer"></div>
     <Content space="large">
         <p class="billboard flush-left">As a product designer, my objective is to make a tangible difference in people's lives through my work. On a human level, my mission is to bring a smile to people's faces in everything I do.</p>
@@ -144,29 +147,6 @@ import IntroCard from "../../components/cards/IntroCard.astro";
 </BaseLayout>
 
 <style lang="scss">
-    .info-grid {
-        display: grid;
-        grid-gap: var(--spacing-small);
-        grid-template-columns: 1fr 1fr;
-        margin-top: var(--spacing-small);
-
-        .info-cell {
-            display: flex;
-            flex-direction: column;
-            gap: .5rem;
-            .label {
-                font-size: 14px;
-                margin: 0;
-            }
-            .detail {
-                margin: 0;
-            }
-            .footer {
-                font-size: 12px;
-                margin: 0;
-            }
-        }
-    }
     .parent-container {
         height: 100%;
         .columns {
