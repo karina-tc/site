@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import Menu from './menu/Menu.astro';
 ---
 
-<div id="nav" class="header nav-listener">
+<div id="nav" class="header">
     <div class="wrapper">
         <div class="left">
             <a class="mark" href="/"></a>
@@ -30,8 +30,9 @@ import Menu from './menu/Menu.astro';
         width: 100%;
         min-height: 56px;
         top: 0rem;
-        z-index: 1;
-        position: absolute;
+        z-index: 2;
+        position: relative;
+        background-color: var(--main-color);
         padding: var(--spacing-medium) 0 var(--spacing-small) ;
 
         &.onthemove {
@@ -40,7 +41,7 @@ import Menu from './menu/Menu.astro';
             background-color: var(--theme-nav-move);
             backdrop-filter: blur(10px);
             height: auto;
-            transition: transition 0.5s ease-in-out;
+            transition: background-color 0.1s ease-in-out;
             will-change: transform;
             animation: smooth 0.5s ease-in-out;
         }

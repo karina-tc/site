@@ -18,8 +18,13 @@ const {
         <MenuLink href="/writing" label="Writing" />
         <MenuLink href="/resume" label="CV" />
     </div>
-    <a href="#open-sesame" class="mobile-menu">
-        <Icon name="menu" size='small' />
+    <a class="mobile-menu">
+        <div class="icon hamburger">
+            <Icon name="menu" size='small' />
+        </div>
+        <div class="icon close">
+            <Icon name="close" size='small' />
+        </div>
     </a>
 </section>
 
@@ -37,6 +42,35 @@ const {
         }
         .mobile-menu {
             display: none;
+            width: 24px;
+            height: 24px;
+            margin-top: 4px;
+            margin-left: -12px;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--theme-ink);
+
+            .icon {
+                position: absolute;
+                transition: all 0.5s ease-in-out;
+                &.close {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+            }
+
+            &.switched .icon {
+                &.hamburger {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+                &.close {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
         }
     }
     @media screen and (max-width: 50rem) {
@@ -47,11 +81,8 @@ const {
             }
             .mobile-menu {
                 display: flex;
-                align-items: center;
-                justify-content: center;
                 cursor: pointer;
             }
         }
     }
 </style>
-

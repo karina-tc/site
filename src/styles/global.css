@@ -76,39 +76,7 @@
     --highlights-cream: #EEEDE4;
     --highlights-silver: #F6F6F6;
 
-
-
-    /* BRAND */
-    --brandDark: #07091f;
-    --brand900: #1b1e41;
-    --brand700: #3c4177;
-    --brand500: #7479b5;
-    --brand300: #9da4de;
-    --brand100: #b7befc;
-    --brand50: #e2e5ff;
-    --brandLight: #f8f9ff;
-    --dim-layer: rgba(27, 30, 65, 0.8);
 }
-
-/*
-@property --theme-color {
-    syntax: '<color>';
-    initial-value: var(--light-base);
-    inherits: false;
-}
-
-@property --theme-ink {
-    syntax: '<color>';
-    initial-value: var(--light-ink);
-    inherits: false;
-}
-
-@property --theme-accent {
-    syntax: '<color>';
-    initial-value: white;
-    inherits: false;
-}
-*/
 
 html {
     background-color: var(--light-base);
@@ -202,11 +170,18 @@ body {
   }
 
   h3 {
-      font: 1.5rem/120% var(--font-headlines);
-      margin: 0 0 .5rem;
-      font-weight: 600;
-      letter-spacing: -.5px;
+    font: 1.5rem/120% var(--font-headlines);
+        margin: 0 0 .5rem;
+        font-weight: 600;
+        letter-spacing: -.5px;
 
+  }
+
+  h5 {
+    font: .8rem/120% var(--font-headlines);
+    margin: 0 0 .5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
   }
 
   p, 

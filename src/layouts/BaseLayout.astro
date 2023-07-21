@@ -6,9 +6,6 @@ import "../styles/global.css";
 import MenuModal from "../components/menu/MenuModal.astro";
 import MarqueeBanner from "../components/banners/MarqueeBanner.astro";
 import Topper from "../components/Topper.astro";
-import MenuInvert from "../scripts/MenuInvert.astro";
-import TimeOfDayGreeting from "../scripts/TimeOfDayGreeting.astro";
-import ThemeSwitcher from "../scripts/ThemeSwitcher.astro";
 
 export interface Props {
  	pageTitle: string;
@@ -34,7 +31,9 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <ThemeSwitcher />
+        <script>
+            import "../scripts/theme-switcher.js";
+        </script>
     </head>
     <body class:list={`base ${background}`}>
         {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/' target='_blank' />)}
@@ -49,8 +48,15 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         <MenuModal />
         <Footer message={footerMessage} memoji={footerMemoji} messageTarget={footerTarget} />
         <!-- Scripts -->
-        <MenuInvert />
-        <TimeOfDayGreeting />
+        <script>
+            import "../scripts/mobile-menu.js";
+        </script>
+        <script>
+            import "../scripts/menu-invert.js";
+        </script>
+        <script>
+            import "../scripts/time-of-day.js";
+        </script>
     </body>
 </html>
 
