@@ -29,8 +29,7 @@ const { message, messageTarget, memoji } = Astro.props;
     )}
     <div class="bottom">
         <div class="left">
-            <p>Karina Tovar</p>
-            <p>© 2023</p>
+            <p>© <span id="currentYear"></span> Karina Tovar</p>
         </div>
         <div class="right">
             <span>This site was built <strong>for you</strong> ❤️</span>
@@ -44,25 +43,6 @@ const { message, messageTarget, memoji } = Astro.props;
         display: flex;
         flex-direction: column;
         gap: 2rem;  
-    }
-
-    .memoji {
-        content: '';
-        margin: var(--spacing-medium) auto -4rem;
-        width: 10rem;
-        height: 10rem;
-        min-height: 10rem;
-        min-width: 10rem;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-
-        &.thumbsup {
-            background-image: url('/public/images/memoji-thumbsup.png');
-        }
-        &.thinking {
-            background-image: url('/public/images/memoji-thinking.png');
-        }
     }
     .bottom {
         width: calc(100% - 12vw);
@@ -80,14 +60,6 @@ const { message, messageTarget, memoji } = Astro.props;
             flex-direction: row;
             gap: 1rem;
             align-items: baseline;
-        }
-
-        .left {
-            p:first-of-type {
-                font-family: var(--font-headlines);
-                font-weight: 600;
-                font-size: 1.3rem;
-            }
         }
     }
     .action {
@@ -138,3 +110,10 @@ const { message, messageTarget, memoji } = Astro.props;
         }
     }
 </style>
+
+<script>
+  const currentYearElement = document.getElementById('currentYear');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear().toString();
+  }
+</script>

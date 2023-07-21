@@ -34,11 +34,10 @@ const { text, link, target } = Astro.props;
         display: flex;
         flex-wrap: nowrap;
         overflow: hidden;
+        background-color: var(--theme-accent);
         position: relative;
-        background-color: var(--sunrise);
-        margin-top: -2rem;
-        position: fixed;
-        bottom: 0px;
+        top: 0px;
+        margin-top: auto;
         z-index: 1;
 
         &-container {

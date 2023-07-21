@@ -90,6 +90,7 @@
     --dim-layer: rgba(27, 30, 65, 0.8);
 }
 
+/*
 @property --theme-color {
     syntax: '<color>';
     initial-value: var(--light-base);
@@ -107,13 +108,12 @@
     initial-value: white;
     inherits: false;
 }
+*/
 
 html {
     background-color: var(--light-base);
     font-family: sans-serif;
-
-    --theme-color: var(--theme-color)=='morning' ? var(--light-base): var(--theme-color)=='afternoon' ? var(--light-base): var(--dark-base);
-    background-color: var(--theme-color);
+    background-color: var(--theme-background);
     transition: background-color 0.5s ease;
 }
 
@@ -140,24 +140,6 @@ body {
     transition: all 0s ease;
     animation: smooth 0.5s ease;
 }
-
-/*
-body.morning {
-    background-color: lightyellow;
-    color: black;
-}
-
-body.afternoon {
-    background-color: lightblue;
-    color: darkblue;
-}
-
-body.evening {
-    background-color: darkblue;
-    color: white;
-}
-*/
-
 
 * {
     box-sizing: border-box;
