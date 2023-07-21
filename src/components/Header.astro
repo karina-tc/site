@@ -1,16 +1,26 @@
 ---
 import '../styles/global.css';
+import Icon from './Icon.astro';
 import Menu from './menu/Menu.astro';
 ---
 
-<div class="header">
+<div id="nav" class="header nav-listener">
     <div class="wrapper">
         <div class="left">
             <a class="mark" href="/"></a>
             <Menu />
         </div>
-        <div class="right">
-            Morning
+        <div class="right tod">
+            <span class="sunrise">
+                <Icon name='sunrise' size='small' />
+            </span>
+            <span class="sunset">
+                <Icon name='sunset' size='small' />
+            </span>
+            <span class="evening">
+                <Icon name='evening' size='small' />
+            </span>
+            <p id="greeting"></p>
         </div>
     </div>
 </div>
@@ -18,13 +28,18 @@ import Menu from './menu/Menu.astro';
 <style lang="scss">
     .header {
         width: 100%;
-        //sbackground-color: rgba(228, 231, 255, 1);
-        background-color: var(--sunrise);
         top: 0rem;
         z-index: 1;
-        position: sticky;
-        backdrop-filter: blur(10px);
         padding-top: 1rem;
+        background-color: var(--sunrise);
+
+        &.onthemove {
+            padding-top: 0;
+            position: sticky;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+        }
+        
         
         .wrapper {
             width: 100%;
@@ -43,6 +58,16 @@ import Menu from './menu/Menu.astro';
             gap: 2rem;
         }
 
+        .right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+
+            &.sunrise span.sunset, &.sunrise .evening {display: none;}
+            &.sunset span.sunrise, &.sunset .evening {display: none;}
+            &.evening span.sunrise, &.evening .sunset {display: none;}
+        }
+
         .mark {
             content: '';
             width: 40px;
@@ -53,11 +78,22 @@ import Menu from './menu/Menu.astro';
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        &.invert {
+            background-color: rgba(0, 0, 0, 0.5);
+            .mark {
+                background-image: url('/public/images/mark-white.svg');
+            }
+
+            .right {
+                color: var(--white);
+            }
+        }
     }
 
     @media only screen and (max-width: 70rem) {
-        .header {
-            width: 90%;
+        .header .wrapper {
+            width: 88%;
         }
     }
 </style>

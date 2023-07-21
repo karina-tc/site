@@ -12,32 +12,37 @@ import IntroCard from "../../components/cards/IntroCard.astro";
     footerTarget="/"
     showBanner="yes"
     footerMemoji="thinking"
+    topperSplit="true"
 >
-    <div class="spacer"></div>
-    <Content space="large">
-        <h1 class="billboard">Artist <span>turned</span> designer</h1>
-        <p class="billboard">In my past life, I was all about creating art that could make the everyday feel extraordinary. Now, I've transitioned to design as my go-to medium, aiming to develop products that genuinely improve people's lives.</p>
-        <div class="spacer-small"></div>
-        <div class="parent-container">
-            <div class="columns has-arrow">
-                <span class="arrow"></span>
-                <div class="cell">
-                    <div class="card fill">
-                        <img src="/images/artwork/grind-1.png" alt="Grind Performance Photo" draggable="false" />
-                    </div>
-                    <a class="card-cta" href="https://vimeo.com/61939053" target="_blank"><span>Watch this performance</span></a>
-                </div>
-                <div class="cell">
-                    <div class="card">
-                        <img src="/images/artwork/grind-2.png" alt="Grind Performance Photo" draggable="false" />
-                    </div>
-                </div>
+    <div slot="topper">
+        <h1 class="billboard">Hello,<br />new friend</h1>
+        <div class="info-grid">
+            <div class="info-cell">
+                <span class="label">Origin</span>
+                <p class="detail">Mexico City</p>
+                <span class="footer">Raised in ELP, Texas</span>
+            </div>
+            <div class="info-cell">
+                <span class="label">Location</span>
+                <p class="detail">New England</p>
+                <span class="footer">East Coast, USA</span>
+            </div>
+            <div class="info-cell">
+                <span class="label">Current role</span>
+                <p class="detail">Senior Product Designer</p>
+                <span class="footer">Whoknows</span>
+            </div>
+            <div class="info-cell">
+                <span class="label">Reading</span>
+                <p class="detail">The Anthropocene</p>
+                <span class="footer">Book by John Green</span>
             </div>
         </div>
-    </Content>
+	</div>
+    <div class="spacer"></div>
     <Content space="large">
-        <h2>Karina the person</h2>
         <p class="billboard flush-left">As a product designer, my objective is to make a tangible difference in people's lives through my work. On a human level, my mission is to bring a smile to people's faces in everything I do.</p>
+        <h2>Preferences</h2>
         <CardsGrid columns="two">
             <TextCard
                 title="I am from Mexico City"
@@ -57,7 +62,7 @@ import IntroCard from "../../components/cards/IntroCard.astro";
             </TextCard>
         </CardsGrid>
         <div class="spacer"></div>
-        <h3>What I like</h3>
+        <h2>What I like</h3>
         <CardsGrid columns="three">
             <TextCard
                 title="🌮 🍟 🍜"
@@ -139,6 +144,29 @@ import IntroCard from "../../components/cards/IntroCard.astro";
 </BaseLayout>
 
 <style lang="scss">
+    .info-grid {
+        display: grid;
+        grid-gap: var(--spacing-small);
+        grid-template-columns: 1fr 1fr;
+        margin-top: var(--spacing-small);
+
+        .info-cell {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            .label {
+                font-size: 14px;
+                margin: 0;
+            }
+            .detail {
+                margin: 0;
+            }
+            .footer {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
     .parent-container {
         height: 100%;
         .columns {

@@ -1,4 +1,5 @@
 ---
+import Icon from '../Icon.astro';
 import MenuLink from './MenuLink.astro';
 export interface Props {
   
@@ -8,22 +9,43 @@ const {
    
 } = Astro.props;
 
-const pathname = new URL(Astro.request.url).pathname;
-const components = pathname.split('/')
-const root = "/" + components[1]
-
 ---
-<section id="menu" class="menu">
-    <MenuLink href="/" label="Home" />
-    <MenuLink href="/about" label="About" />
-    <MenuLink href="/work" label="Work" />
-    <MenuLink href="/writing" label="Writing" />
-    <MenuLink href="/resume" label="CV" />
+<section class="menu nav-listener">
+    <div class="links">
+        <MenuLink href="/" label="Home" />
+        <MenuLink href="/about" label="About" />
+        <MenuLink href="/work" label="Work" />
+        <MenuLink href="/writing" label="Writing" />
+        <MenuLink href="/resume" label="CV" />
+    </div>
+    <div class="mobile-menu">
+        <Icon name="menu" size='small' />
+    </div>
 </section>
 
 <style lang="scss">
     .menu {
         display: flex;
-        gap: 2rem;
+        .links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .mobile-menu {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 50rem) {
+        .menu {
+            .links {
+                display: none;
+            }
+            .mobile-menu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
     }
 </style>
+

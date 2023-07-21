@@ -66,6 +66,7 @@
     --ghost10: rgba(255, 255, 255, 0.10);
     --ghost25: rgba(255, 255, 255, 0.25);
     --ghost50: rgba(255, 255, 255, 0.50);
+    --white: #fff;
 
     --highlights-wine: #3F2B46;
     --highlights-mint: #EBF3EC;
@@ -85,7 +86,6 @@
     --brand100: #b7befc;
     --brand50: #e2e5ff;
     --brandLight: #f8f9ff;
-    --white: #fff;
     --dim-layer: rgba(27, 30, 65, 0.8);
 }
 
@@ -156,17 +156,14 @@ body {
   h1 {
       font: 6rem/100% var(--font-headlines);
       margin: 0;
-      font-weight: 600;
-      letter-spacing: -4px;
+      font-weight: 400;
+      letter-spacing: -6px;
   }
 
   h1.billboard {
-      font-size: 8rem;
+      font-size: 7rem;
+      font-weight: 500 ;
       letter-spacing: -4px;
-  }
-
-  h1.billboard span {
-      font-weight: 400;
   }
 
   h2 {
@@ -195,11 +192,9 @@ body {
   }
 
    p.billboard {
-       margin-top: var(--spacing-medium);
        font-size: 1.5rem;
-       line-height: 160%;
-       text-align: center;
-       letter-spacing: -1px;
+       line-height: 140%;
+       letter-spacing: -.5px;
    }
 
   a {
@@ -238,9 +233,10 @@ body {
     }
 }
 
-@media only screen and (max-width: 40rem) {
-    h1, h1.billboard {
-        font-size: 3.5rem;
+@media only screen and (max-width: 50rem) {
+    h1,
+    h1.billboard {
+        font-size: 4.5rem;
     }
     h2 {
         font-size: 1.5rem;
@@ -254,5 +250,13 @@ body {
     }
     p.billboard {
         font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+
+    h1,
+    h1.billboard {
+        font-size: 3.5rem;
     }
 }

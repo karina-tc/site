@@ -6,6 +6,8 @@ import "../styles/global.css";
 import MenuModal from "../components/menu/MenuModal.astro";
 import MarqueeBanner from "../components/banners/MarqueeBanner.astro";
 import Topper from "../components/Topper.astro";
+import MenuInvert from "../scripts/MenuInvert.astro";
+import TimeOfDayGreeting from "../scripts/TimeOfDayGreeting.astro";
 
 export interface Props {
  	pageTitle: string;
@@ -43,6 +45,9 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         </Main>
         <MenuModal />
         <Footer message={footerMessage} memoji={footerMemoji} messageTarget={footerTarget} />
+        <!-- Scripts -->
+        <MenuInvert />
+        <TimeOfDayGreeting />
     </body>
 </html>
 

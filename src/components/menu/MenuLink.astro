@@ -11,7 +11,7 @@ const root = "/" + components[1]
 
 ---
 
-<a class:list={`link ${root === href ? 'active' : ''}`} href={href}>{label}</a>
+<a class:list={`link nav-listener ${root === href ? 'active' : ''}`} href={href}>{label}</a>
 
 <style lang="scss">
     .link {
@@ -42,6 +42,13 @@ const root = "/" + components[1]
             font-weight: 600;
             &::after {
                 transform: scaleX(1);
+            }
+        }
+
+        &.invert {
+            color: var(--white);
+            &.active::after, &:hover::after {
+                background-color: var(--white);
             }
         }
     }

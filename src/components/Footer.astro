@@ -9,9 +9,6 @@ const { message, messageTarget, memoji } = Astro.props;
 ---
 
 <footer class="animate__animated animate__slideInUp">
-    {memoji && (
-        <div class:list={`memoji ${memoji}`}></div>
-    )}
     {message && (<div class="action">
         {message === 'together' && (
             <div class="message">
@@ -69,7 +66,7 @@ const { message, messageTarget, memoji } = Astro.props;
     }
     .bottom {
         width: calc(100% - 12vw);
-        max-width: 58rem;
+        max-width: 70rem;
         margin: 0 auto 4rem;
         display: flex;
         flex-direction: row;
@@ -95,14 +92,10 @@ const { message, messageTarget, memoji } = Astro.props;
     }
     .action {
         padding: 5rem 2rem;
-        background-image: url('/public/images/bg-footer.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100%;
 
         .message {
             width: calc(100% - 12vw);
-            max-width: 58rem;
+            max-width: 70rem;
             margin: 0 auto;
             text-align: center;
 
