@@ -6,7 +6,7 @@ import IntroCard from '../components/cards/IntroCard.astro';
 
 ---
 
-<BaseLayout pageTitle='Home' background='background'>
+<BaseLayout pageTitle='Home' background='background' showBanner='yes'>
 	<div slot="topper">
 		<p class="billboard">Hello, new friend</p>
 		<br />
@@ -24,9 +24,6 @@ import IntroCard from '../components/cards/IntroCard.astro';
 		text-decoration-style: wavy;
 		text-decoration-thickness: from-font;
 		text-decoration-color: #e1a66fab;
-		&.des-cur {
-			//text-decoration-color: #B03ACD;
-		}
 	}
 	h2.ps {
 		font-family: var(--font--copy);
