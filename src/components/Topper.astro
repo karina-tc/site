@@ -24,7 +24,22 @@ const { split } = Astro.props;
         padding: var(--spacing-small) var(--spacing-medium) var(--spacing-large);
         background-color: var(--main-color);
         transition: all 0.3s ease-in-out;
+        position: relative;
         will-change: transform;
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            min-height: 68px;
+            padding: var(--spacing-small) 0 var(--spacing-small);
+            background-color: var(--main-color);
+            position: absolute;
+            top: -130px;
+            left: 0;
+            right: 0;
+            will-change: transform;
+            transition: all 0.3s ease-in-out;
+        }
 
         .wrapper {
             width: 100%;
