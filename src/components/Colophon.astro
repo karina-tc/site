@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 export interface Props {}
 
 const {} = Astro.props;
@@ -7,23 +8,42 @@ const {} = Astro.props;
 
 <article id="colophon">
   <section class="content">
-    <div>
-      <span>This site was built for you</span>
+    <div class="top">
+        <h2>Colophon</h2>
+        <a class="close" href="#nav">
+          <Icon name='close' size='small' />
+        </a>
+    </div>
+    <div class="stack">
       <div class="row">
-        <p>Framework</p>
-        <p>AstroJS</p>
+        <div class="cell">
+          <img src="/public/images/f-astro.svg" alt="AstroJS Logo" />
+        </div>
+        <div class="cell">
+          <p>AstroJS</p>
+          <span>Framework</span>
+        </div>
       </div>
       <div class="row">
-        <p>Deploys</p>
-        <p>Netlify</p>
+        <div class="cell">
+          <img src="/public/images/f-netlify.svg" alt="Netlify Logo" />
+        </div>
+        <div class="cell">
+           <p>Netlify</p>
+          <span>Deploys</span>
+        </div>
       </div>
       <div class="row">
-        <p>Typeface</p>
-        <p>Archia from Attipo</p>
+        <div class="cell">
+          <img src="/public/images/f-attipo.svg" alt="Attipo Foundry Logo" />
+        </div>
+        <div class="cell">
+          <p>Attipo</p>
+          <span>Archia - Type</span>
+        </div>
       </div>
     </div>
-    <iframe src="https://giphy.com/embed/S8ZJ0c7a1lXvkkCjr9"></iframe>
-    <a class="close" href="#nav">Close</a>
+    <span>This site was built for you ❤️</span>
   </section>
 </article>
 
@@ -41,73 +61,65 @@ const {} = Astro.props;
     overflow: hidden;
     background: var(--theme-menu);
     backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
     transition: opacity linear 0.2s;
     z-index: 2;
     height: 100%;
     top: 0;
-  }
 
-  /* When targetted with #modalID */
-  article:target {
-    pointer-events: inherit;
-    opacity: 1;
-  }
+    /* When targetted with #modalID */
+    &:target {
+      pointer-events: inherit;
+      opacity: 1;
+    }
 
-  /* When the details is clicked, the animation is triggered on summary */
-  article:target section {
-    animation: appear 0.5s var(--timing-curve-bounce);
+    /* When the details is clicked, the animation is triggered on summary */
+    &:target section {
+      animation: appear 0.5s var(--timing-curve-bounce);
+    }
   }
 
   /* This handles the actual centered modal */
   .content {
     position: relative;
     width: 90%;
-    max-width: 20rem;
-    padding: var(--spacing-small);
+    max-width: 24rem;
     color: var(--theme-ink);
-    background-color: var(--theme-menu);
-    border-radius: 1rem;
-    border: 1px solid var(--theme-ink);
+    padding: var(--spacing-small);
+    background-color: var(--theme-background);
 
-    iframe {
-      flex: 1;
-      border: none;
-      width: 100%;
-      margin: 2rem auto 0;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      a {text-decoration: none;}
     }
 
-    span {
+    .stack {
       display: flex;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid var(--theme-ink);
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: .5rem;
-      &:first-of-type {
-        margin-top: 2rem;
-      }
-      p {
-        margin: .1rem 0;
-      }
-      p:first-child {
-        font-weight: 600;
-      }
+      gap: var(--spacing-small);
+      margin: var(--spacing-small) 0;
     }
+    .row {
+      color: var(--theme-ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: .5rem;
+      .cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
 
-    a.close {
-      display: block;
-      font-size: 14px;
-      margin-top: 1rem;
+        p {font-weight: 600; margin: 0;}
+        span {font-size: 0.75rem; margin: 0;}
+      }
     }
   }
 

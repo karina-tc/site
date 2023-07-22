@@ -1,31 +1,51 @@
 ---
 export interface Props {
  	split?: string;
+    isFull?: string;
 }
-const { split } = Astro.props;
+const { split, isFull } = Astro.props;
 ---
 
-<div class="topper">
-    <div class="wrapper">
-        <div class="column left">
-            <slot name="content" />
-        </div>
-        {split === 'true' && (
-            <div class="column">
-                <slot name="assistant" />
+{isFull && (
+    <div class="topper full">
+        <div class="wrapper">
+            <div class="column left">
+                <slot name="content" />
             </div>
-        )}
+            {split === 'true' && (
+                <div class="column">
+                    <slot name="assistant" />
+                </div>
+            )}
+        </div>
     </div>
-</div>
+)}
+{!isFull && (
+    <div class="topper">
+        <div class="wrapper">
+            <div class="column left">
+                <slot name="content" />
+            </div>
+            {split === 'true' && (
+                <div class="column">
+                    <slot name="assistant" />
+                </div>
+            )}
+        </div>
+    </div>
+)}
 
 <style lang="scss">
     .topper {
         width: 100%;
-        padding: var(--spacing-small) var(--spacing-medium) var(--spacing-large);
+        padding: var(--spacing-small) var(--spacing-small) var(--spacing-medium);
         background-color: var(--main-color);
         transition: all 0.3s ease-in-out;
         position: relative;
         will-change: transform;
+        &.full {
+            flex: 1;
+        }
         &::before {
             content: '';
             display: block;

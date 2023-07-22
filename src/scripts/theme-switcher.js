@@ -6,8 +6,8 @@ const themes = {
     '--theme-ink': 'var(--light-ink)',
     '--theme-mark': "url('https://karinatovar.s3.us-east-2.amazonaws.com/mark.svg')",
     '--theme-nav-move': 'rgba(255, 255, 255, 0.75)',
-    '--theme-nav-invert': 'rgba(0, 0, 0, 0.75)',
-    '--theme-menu': 'rgba(255, 255, 255, 0.25)',
+    //'--theme-nav-invert': 'rgba(0, 0, 0, 0.75)',
+    '--theme-menu': 'var(--ghost50)',
   },
   'afternoon': {
     '--main-color': 'var(--sunset)',
@@ -16,8 +16,8 @@ const themes = {
     '--theme-ink': 'var(--light-ink)',
     '--theme-mark': "url('https://karinatovar.s3.us-east-2.amazonaws.com/mark.svg')",
     '--theme-nav-move': 'rgba(255, 255, 255, 0.75)',
-    '--theme-nav-invert': 'rgba(0, 0, 0, 0.75)',
-    '--theme-menu': 'rgba(255, 255, 255, 0.25)',
+    //'--theme-nav-invert': 'rgba(0, 0, 0, 0.75)',
+    '--theme-menu': 'var(--ghost50)',
   },
   'evening': {
     '--main-color': 'var(--highlights-wine)',
@@ -26,8 +26,8 @@ const themes = {
     '--theme-ink': 'var(--dark-ink)',
     '--theme-mark': "url('https://karinatovar.s3.us-east-2.amazonaws.com/mark-white.svg')",
     '--theme-nav-move': 'rgba(71, 54, 76, 0.75)',
-    '--theme-nav-invert': 'rgba(71, 54, 76, 0.75)',
-    '--theme-menu': 'rgba(71, 54, 76, 0.25)',
+    //'--theme-nav-invert': 'rgba(71, 54, 76, 0.75)',
+    '--theme-menu': 'rgba(0, 0, 0, 0.4)',
   },
 };
 

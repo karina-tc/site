@@ -161,6 +161,7 @@ body {
       font-size: 7rem;
       font-weight: 500 ;
       letter-spacing: -4px;
+      margin: var(--spacing-small) 0;
   }
 
   h2 {

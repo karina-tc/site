@@ -10,13 +10,11 @@ import Topper from "../components/Topper.astro";
 export interface Props {
  	pageTitle: string;
     background?: string;
-    footerMessage?: string;
-    footerTarget?: string;
-    footerMemoji?: string;
+    hasContent?: string;
     showBanner?: string;
     topperSplit?: string;
 }
-const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBanner, topperSplit } = Astro.props;
+const {pageTitle, hasContent, background, showBanner, topperSplit } = Astro.props;
 ---
 
 <html lang="en">
@@ -36,17 +34,36 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
         </script>
     </head>
     <body class:list={`base ${background}`}>
-        {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/' target='_blank' />)}
-        <Header pageTitle={pageTitle} />
-        <Topper split={topperSplit}>
-            <slot slot="content" name="topper"></slot>
-            <slot slot="assistant" name="topper-assist"></slot>
-        </Topper>
-        <Main>
-            <slot></slot>
-        </Main>
+        <!-- MENU MODAL (Triggered by Menu in Nav – In Mobile) -->
         <MenuModal />
-        <Footer message={footerMessage} memoji={footerMemoji} messageTarget={footerTarget} />
+
+        <!-- MARQUEE BANNER -->
+        {showBanner && (<MarqueeBanner text='open for new opportunities' link='https://www.linkedin.com/in/karina-tovar-castro/' target='_blank' />)}
+        
+        <!-- PAGE HEADER (Includes: Nav + Weather) -->
+        <Header />
+
+        <!-- START of CONTENT MANAGER -->
+        {!hasContent && (
+            <Topper split={topperSplit} isFull="true">
+                <slot slot="content" name="topper"></slot>
+                <slot slot="assistant" name="topper-assist"></slot>
+            </Topper>
+        )}
+        {hasContent && (
+            <Topper split={topperSplit}>
+                <slot slot="content" name="topper"></slot>
+                <slot slot="assistant" name="topper-assist"></slot>
+            </Topper>
+            <Main>
+                <slot />
+            </Main>
+        )}
+        <!-- END of CONTENT MANAGER -->
+
+        <!-- FOOTER -->
+        <Footer />
+
         <!-- Scripts -->
         <script>
             import "../scripts/mobile-menu.js";
@@ -62,12 +79,11 @@ const {pageTitle, background, footerMessage, footerTarget, footerMemoji, showBan
 
 <style lang="scss">
     .base {
-        padding: 0;
+        padding: 0 var(--spacing-small) var(--spacing-small);
         display: flex;
         flex-direction: column;
         height: 100%;
         min-height: 100vh;
-
         &.background-main {
             background-image: url('/public/images/bg-main.png');
             background-position: left top;
